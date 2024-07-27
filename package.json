@@ -1,0 +1,19 @@
+{
+  "name": "shoppy",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "node control-server.js & npm run start:client",
+    "start:client": "npm --prefix client run dev",
+    "start:server": "npm --prefix server run dev",
+    "shoppy": "npm run migrate && npm run seed && npm start",
+    "migrate": "npm --prefix server run migrate",
+    "seed": "npm --prefix server run seed",
+    "drop": "npm --prefix server run drop",
+    "stop": "node stop-server.js"
+  }
+}
