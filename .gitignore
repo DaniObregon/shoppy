@@ -25,3 +25,6 @@ dist-ssr
 
 #Dependencies
 /client/node_modules/
+
+#dotenv
+.env
