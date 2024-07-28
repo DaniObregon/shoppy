@@ -9,16 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      marca: {
+      brand: {
         type: Sequelize.STRING
       },
-      modelo: {
+      model: {
         type: Sequelize.STRING
       },
-      descripcion: {
+      description: {
         type: Sequelize.STRING
       },
-      precio: {
+      price: {
         type: Sequelize.DOUBLE
       },
       createdAt: {

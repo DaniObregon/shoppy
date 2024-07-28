@@ -5,10 +5,10 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Products', [
       {
-        marca: 'Nike',
-        modelo: 'Air',
-        descripcion: 'No description',
-        precio: 3025.5,
+        brand: 'Nike',
+        model: 'Air',
+        description: 'No description',
+        price: 3025.5,
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -22,6 +22,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Products', { modelo: 'Air' }, {});
+    await queryInterface.bulkDelete('Products', { model: 'Air' }, {});
   }
 };
