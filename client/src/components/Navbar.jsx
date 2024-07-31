@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../assets/logo03.png';
+import logo from '../assets/butterfly-02.png';
 import {
   Box,
   Flex,
