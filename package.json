@@ -15,5 +15,10 @@
     "seed": "npm --prefix server run seed",
     "drop": "npm --prefix server run drop",
     "stop": "node stop-server.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
   }
 }
