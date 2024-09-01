@@ -14,11 +14,11 @@
     "migrate": "npm --prefix server run migrate",
     "seed": "npm --prefix server run seed",
     "drop": "npm --prefix server run drop",
-    "stop": "node stop-server.js"
+    "stop": "node stop-server.js",
+    "test": "jest"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
-  },
-  "dependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
