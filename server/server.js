@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors'); // Agrega esta línea
-const routes = require('../routes');
-const db = require('../models');
+const routes = require('./routes');
+const db = require('./models');
 const app = express();
 const PORT = process.env.SERVER_PORT || 5000;
 
