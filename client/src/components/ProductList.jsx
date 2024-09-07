@@ -11,7 +11,11 @@ export const ProductList = () => {
       try {
         const response = await axios.get('/api/products');
         console.log(response.data);
-        setProducts(response.data);
+        if (Array.isArray(response.data)) {
+          setProducts(response.data);
+        } else {
+          console.error('Unexpected response format', response.data);
+        }
       } catch (error) {
         console.error('Error fetching products:', error);
       }
