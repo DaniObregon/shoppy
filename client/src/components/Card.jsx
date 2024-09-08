@@ -1,5 +1,5 @@
-import React from 'react';
-import { chakra, Box, Flex } from '@chakra-ui/react';
+import React from "react";
+import { chakra, Box, Flex } from "@chakra-ui/react";
 
 export const Card = ({ brand, model, description, price, imgUrl }) => {
   return (
@@ -13,7 +13,7 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
     >
       <Box
         bg="gray.300"
-        h={{ base: 56, md: 64 }}  //Imagen más grande para mantener la proporción */}
+        h={{ base: 56, md: 64 }} //Imagen más grande para mantener la proporción
         w="full"
         rounded="lg"
         shadow="md"
@@ -25,10 +25,10 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
       ></Box>
 
       <Box
-        w={{ base: "80%", md: "70%" }}  //{/* Caja de datos más pequeña y centrada */}
+        w={{ base: "80%", md: "70%" }} // Caja de datos más pequeña y centrada
         bg="white"
         _dark={{ bg: "gray.800" }}
-        mt={-10}  //{/* Superponer la caja de datos en la imagen */}
+        mt={-10} // Superponer la caja de datos en la imagen
         shadow="lg"
         rounded="lg"
         overflow="hidden"
