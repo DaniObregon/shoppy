@@ -28,3 +28,6 @@ dist-ssr
 
 #dotenv
 .env
+
+#firebaseConfig
+/client/src/firebaseConfig.js
