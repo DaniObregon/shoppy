@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../assets/butterfly-02.png';
+import logo from "../assets/butterfly-02.png";
 import {
   Box,
   Flex,
@@ -27,12 +27,12 @@ import {
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
 
-export default function Navbar() {
+export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box marginBottom={1} marginTop={2.5}>
+    <Box mt="60px" marginBottom={1} marginTop={5}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -45,7 +45,8 @@ export default function Navbar() {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justify={"space-between"}
-        marginTop={0} // Ajusta esto si es necesario
+        marginTop={8} // Ajusta esto si es necesario
+        paddingTop="9px"
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -120,7 +121,7 @@ export default function Navbar() {
       </Collapse>
     </Box>
   );
-}
+};
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
