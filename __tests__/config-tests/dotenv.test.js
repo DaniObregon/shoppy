@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 describe("Environment Configuration", () => {
   beforeAll(() => {
     // Carga el archivo .env usando una ruta absoluta
-    const envPath = path.resolve(__dirname, '../../server/.env');
+    const envPath = path.resolve(__dirname, '../../.env');
     const result = dotenv.config({ path: envPath });
 
     if (result.error) {
@@ -13,7 +13,7 @@ describe("Environment Configuration", () => {
   });
 
   test("should load .env file successfully", () => {
-    const envPath = path.resolve(__dirname, '../../server/.env');
+    const envPath = path.resolve(__dirname, '../../.env');
     const result = dotenv.config({ path: envPath });
     expect(result.error).toBeUndefined();
   });

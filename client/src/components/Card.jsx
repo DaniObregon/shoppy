@@ -1,118 +1,107 @@
-import React from 'react';
-import { chakra, Box, Flex } from '@chakra-ui/react';
+import React from "react";
+import { chakra, Box, Flex } from "@chakra-ui/react";
 
 export const Card = ({ brand, model, description, price, imgUrl }) => {
   return (
     <Flex
-      bg="#edf3f8"
-      _dark={{ bg: "#3e3e3e" }}
-      p={50}
-      w="full"
-      alignItems="flex-start"
+      direction="column"
       justifyContent="center"
-      wrap="wrap"
-      gap="5mm"
+      alignItems="center"
+      w="full"
+      mx="auto"
+      mb={4}
     >
-      <Flex
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        w={{ base: "full", md: "sm" }}
-        mx="auto"
-        mb={4}
-      >
-        <Box
-          bg="gray.300"
-          h={64}
-          w="full"
-          rounded="lg"
-          shadow="md"
-          bgSize="cover"
-          bgPos="center"
-          style={{
-            backgroundImage: `url(${imgUrl})`,
-          }}
-        ></Box>
+      <Box
+        bg="gray.300"
+        h={{ base: 56, md: 64 }} //Imagen más grande para mantener la proporción
+        w="full"
+        rounded="lg"
+        shadow="md"
+        bgSize="cover"
+        bgPos="center"
+        style={{
+          backgroundImage: `url(${imgUrl})`,
+        }}
+      ></Box>
 
-        <Box
-          w={{ base: 56, md: 64 }}
-          bg="white"
-          _dark={{ bg: "gray.800" }}
-          mt={-10}
-          shadow="lg"
-          rounded="lg"
-          overflow="hidden"
+      <Box
+        w={{ base: "80%", md: "70%" }} // Caja de datos más pequeña y centrada
+        bg="white"
+        _dark={{ bg: "gray.800" }}
+        mt={-10} // Superponer la caja de datos en la imagen
+        shadow="lg"
+        rounded="lg"
+        overflow="hidden"
+      >
+        <chakra.h3
+          py={2}
+          textAlign="center"
+          fontWeight="bold"
+          textTransform="uppercase"
+          color="gray.800"
+          _dark={{ color: "white" }}
+          letterSpacing={1}
         >
-          <chakra.h3
-            py={2}
-            textAlign="center"
+          {brand}
+        </chakra.h3>
+        <chakra.p
+          py={1}
+          textAlign="center"
+          fontWeight="medium"
+          color="gray.600"
+          _dark={{ color: "gray.300" }}
+          fontSize="sm"
+        >
+          {model}
+        </chakra.p>
+        <chakra.p
+          py={1}
+          textAlign="center"
+          fontWeight="medium"
+          color="gray.600"
+          _dark={{ color: "gray.300" }}
+          fontSize="sm"
+        >
+          {description}
+        </chakra.p>
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          py={2}
+          px={3}
+          bg="gray.200"
+          _dark={{ bg: "gray.700" }}
+        >
+          <chakra.span
             fontWeight="bold"
-            textTransform="uppercase"
             color="gray.800"
-            _dark={{ color: "white" }}
-            letterSpacing={1}
+            _dark={{ color: "gray.200" }}
           >
-            {brand}
-          </chakra.h3>
-          <chakra.p
+            ${price}
+          </chakra.span>
+          <chakra.button
+            bg="gray.800"
+            fontSize="xs"
+            fontWeight="bold"
+            color="white"
+            px={2}
             py={1}
-            textAlign="center"
-            fontWeight="medium"
-            color="gray.600"
-            _dark={{ color: "gray.300" }}
-            fontSize="sm"
+            rounded="lg"
+            textTransform="uppercase"
+            _hover={{
+              bg: "gray.700",
+              _dark: { bg: "gray.600" },
+            }}
+            _focus={{
+              bg: "gray.700",
+              _dark: { bg: "gray.600" },
+              outline: "none",
+            }}
           >
-            {model}
-          </chakra.p>
-          <chakra.p
-            py={1}
-            textAlign="center"
-            fontWeight="medium"
-            color="gray.600"
-            _dark={{ color: "gray.300" }}
-            fontSize="sm"
-          >
-            {description}
-          </chakra.p>
-          <Flex
-            alignItems="center"
-            justifyContent="space-between"
-            py={2}
-            px={3}
-            bg="gray.200"
-            _dark={{ bg: "gray.700" }}
-          >
-            <chakra.span
-              fontWeight="bold"
-              color="gray.800"
-              _dark={{ color: "gray.200" }}
-            >
-              ${price}
-            </chakra.span>
-            <chakra.button
-              bg="gray.800"
-              fontSize="xs"
-              fontWeight="bold"
-              color="white"
-              px={2}
-              py={1}
-              rounded="lg"
-              textTransform="uppercase"
-              _hover={{
-                bg: "gray.700",
-                _dark: { bg: "gray.600" },
-              }}
-              _focus={{
-                bg: "gray.700",
-                _dark: { bg: "gray.600" },
-                outline: "none",
-              }}
-            >
-              Add to cart
-            </chakra.button>
-          </Flex>
-        </Box>
-      </Flex>
+            Add to cart
+          </chakra.button>
+        </Flex>
+      </Box>
     </Flex>
   );
 };

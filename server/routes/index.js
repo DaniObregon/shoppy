@@ -1,4 +1,4 @@
-const express = require('express');  // Agrega esto
+const express = require('express');
 const router = require('express').Router();
 const adminApiRouter = require('./admin-api');
 const apiRouter = require('./api');
