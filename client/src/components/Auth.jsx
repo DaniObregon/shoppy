@@ -1,8 +1,8 @@
-import React from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { Button } from "@chakra-ui/react";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { SignUpButton } from "./SignUpButton";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/firebaseConfig"; // Importa la instancia de autenticación
+import React from "react";
 import axios from "axios";
 
 export const Auth = ({ onAuthSuccess }) => {
@@ -44,20 +44,8 @@ export const Auth = ({ onAuthSuccess }) => {
   };
 
   return (
-    <Button
-      onClick={signUpWithGoogle}
-      as={"a"}
-      display={{ base: "none", md: "inline-flex" }}
-      fontSize={"sm"}
-      fontWeight={600}
-      color={"white"}
-      bg={"pink.400"}
-      href={"#"}
-      _hover={{
-        bg: "pink.300",
-      }}
-    >
-      Sign Up
-    </Button>
+    <div>
+      <SignUpButton onClick={signUpWithGoogle} />
+    </div>
   );
 };
