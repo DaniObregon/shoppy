@@ -26,6 +26,7 @@ import {
   SunIcon,
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
+import { Auth } from "./Auth"; 
 
 export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -94,7 +95,9 @@ export const Navbar = () => {
           >
             Sign In
           </Button>
-          <Button
+          {/* Modificación: Se añade el componente Auth para manejar el Sign Up */}
+          <Auth />
+          {/* <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
@@ -107,7 +110,7 @@ export const Navbar = () => {
             }}
           >
             Sign Up
-          </Button>
+          </Button> */}
           <IconButton
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
