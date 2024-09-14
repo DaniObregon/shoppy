@@ -79,3 +79,18 @@ export const Carousel = () => {
     </Flex>
   );
 };
+
+/** IMAGENES DE ZAPATILLAS
+    {
+      img: "https://hips.hearstapps.com/hmg-prod/images/run-reebok-running-shoes-64e3beadbe692.jpg",
+    },
+    {
+      img: "https://scontent.faep9-1.fna.fbcdn.net/v/t39.30808-6/221863802_537077584388553_1054731658053590263_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEh83xoHX7uA3M3jybX6IcPs2PM-LdG08-zY8z4t0bTz2WYdy-J1oOS1LypLBSULMMu1nfH3SXI_GrnhXAvLCO&_nc_ohc=ISWDfIVXRyQQ7kNvgGrT7st&_nc_ht=scontent.faep9-1.fna&oh=00_AYC_Go5c-pXVp8JD9ebJjKMzTQxAX-PF20lZ-vedSqFgcQ&oe=66E4BDD4",
+    },
+    {
+      img: "https://brand.assets.adidas.com/capi/enUS/Images/1839569-seo-how-to-break-in-running-shoes-body-image-2_221-681798.jpg",
+    },
+    {
+      img: "https://portcrossfit.com/wp-content/uploads/2023/08/run-nike-running-shoes-646cdd1a19c41-1200x600.jpg",
+    },
+ */
