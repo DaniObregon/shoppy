@@ -16,7 +16,7 @@
     "@emotion/styled": "^11.13.0",
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
-    "@reduxjs/toolkit": "^2.2.6",
+    "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.3",
     "firebase": "^10.13.1",
     "framer-motion": "^11.3.17",

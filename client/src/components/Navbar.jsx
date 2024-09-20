@@ -26,10 +26,14 @@ import {
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
 import { Auth } from "./Auth";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+
+  // Obtener el estado del usuario desde Redux
+  const user = useSelector((state) => state.user.user);
 
   return (
     <Box mt="60px" marginBottom={1} marginTop={5}>
@@ -85,10 +89,19 @@ export const Navbar = () => {
           direction={"row"}
           spacing={6}
         >
-
-          {/* Modificación: Se añade el componente Auth para manejar el Sign Up */}
-          <Auth />
-
+          {user && (
+            <Text
+              p={2}
+              color="gray.600"
+              whiteSpace="nowrap"
+              maxWidth="200px"
+              overflow="hidden"
+              textOverflow="ellipsis"
+            >
+              Hola, {user.name}
+            </Text>
+          )}
+          <Auth /> {/* Este componente manejará tanto login como logout */}
           <IconButton
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
