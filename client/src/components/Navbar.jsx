@@ -89,7 +89,7 @@ export const Navbar = () => {
           direction={"row"}
           spacing={6}
         >
-          {user && (
+          {/* {user && (
             <Text
               p={2}
               color="gray.600"
@@ -100,7 +100,7 @@ export const Navbar = () => {
             >
               Hola, {user.name}
             </Text>
-          )}
+          )} */}
           <Auth /> {/* Este componente manejará tanto login como logout */}
           <IconButton
             aria-label="Toggle Dark Mode"

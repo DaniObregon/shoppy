@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { SignUpButton } from "./SignUpButton";
 import { SignOutButton } from "./SignOutButton"; // Nuevo componente de SignOut
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,22 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../redux/slices/userSlice"; // Importar la acción de login yi logout
+import {
+  Box,
+  Flex,
+  Text,
+  IconButton,
+  Stack,
+  Collapse,
+  Icon,
+  Link,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  useColorModeValue,
+  useDisclosure,
+  useColorMode,
+} from "@chakra-ui/react";
 
 export const Auth = ({ onAuthSuccess }) => {
   const provider = new GoogleAuthProvider();
@@ -69,12 +85,38 @@ export const Auth = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div>
+    <Flex align="center" justify="center" p={4}>
       {user ? (
-        <SignOutButton onClick={signOutUser} />
+        <Stack direction="row" align="center" spacing={4}>
+          <Text
+            p={2}
+            color="gray.600"
+            whiteSpace="nowrap"
+            maxWidth="200px"
+            overflow="hidden"
+            textOverflow="ellipsis"
+          >
+            Hola, {user.name}
+          </Text>
+          <SignOutButton onClick={signOutUser} /> {/* Botón de cerrar sesión */}
+        </Stack>
       ) : (
-        <SignUpButton onClick={signUpWithGoogle} />
+        <SignUpButton onClick={signUpWithGoogle} /> // Botón de inicio de sesión
       )}
-    </div>
+    </Flex>
   );
 };
+{
+  /* {user && (
+            <Text
+              p={2}
+              color="gray.600"
+              whiteSpace="nowrap"
+              maxWidth="200px"
+              overflow="hidden"
+              textOverflow="ellipsis"
+            >
+              Hola, {user.name}
+            </Text>
+          )} */
+}
