@@ -1,13 +1,13 @@
-const router = require('express').Router();
-const { Product } = require('../../models');
+const router = require("express").Router();
+const { Product } = require("../../models");
 
-router.route('/').get((req, res) => {
+router.route("/").get((req, res) => {
   Product.findAll()
     .then((products) => {
       res.json(products);
     })
     .catch((e) => {
-      console.error('ERROR', e);
+      console.error("ERROR", e);
       res.sendStatus(500);
     });
 });

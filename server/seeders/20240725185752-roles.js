@@ -10,13 +10,9 @@ module.exports = {
         { id: 2, name: "admin", createdAt: new Date(), updatedAt: new Date() },
         { id: 3, name: "owner", createdAt: new Date(), updatedAt: new Date() },
       ],
-      {}
+      { ignoreDuplicates: true }
     );
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Roles', {
-      name: { [Sequelize.Op.in]: ['admin', 'client', 'owner'] }
-    }, {});
-  }
+  async down(queryInterface, Sequelize) {},
 };

@@ -21,7 +21,7 @@ module.exports = {
       role_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Roles', // Nombre de la tabla de roles
+          model: 'Roles', // Nombre de la tabla referenciada
           key: 'id'
         },
         onUpdate: 'CASCADE',

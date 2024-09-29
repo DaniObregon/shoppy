@@ -5,7 +5,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -26,7 +25,7 @@ import {
   SunIcon,
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
-import { Auth } from "./Auth"; 
+import { Auth } from "./Auth";
 
 export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -39,15 +38,17 @@ export const Navbar = () => {
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
-        px={{ base: 4 }}
+        px={{ base: 10 }}
         borderBottom={1}
-        borderTop={1} // Asegúrate de que este borde sea el correcto
+        borderTop={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justify={"space-between"}
-        marginTop={8} // Ajusta esto si es necesario
+        marginTop={8}
+        marginBottom={1}
         paddingTop="9px"
+        border={-10}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -85,36 +86,15 @@ export const Navbar = () => {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
+          alignItems="center" // Asegura que todo esté alineado verticalmente
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          {/* Modificación: Se añade el componente Auth para manejar el Sign Up */}
-          <Auth />
-          {/* <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button> */}
+          <Auth /> {/* Este componente maneja tanto login como logout */}
+
           <IconButton
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
+            p={2}
           />
         </Stack>
       </Flex>
