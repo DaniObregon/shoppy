@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { chakra, Box, Flex } from "@chakra-ui/react";
+import { AddToCartButton } from "./AddToCartButton";
 
-export const Card = ({ brand, model, description, price, imgUrl }) => {
+export const Card = ({ id, brand, model, description, price, imgUrl }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <Flex
       direction="column"
@@ -13,7 +21,9 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
       transition="transform 0.15s ease-in-out"
       _hover={{
         transform: "scale(1.015)",
+        cursor: "pointer",
       }}
+      onClick={handleNavigate} // Redirige cuando se hace clic en la card
     >
       <Box
         bg="gray.300"
@@ -83,27 +93,7 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
           >
             ${price}
           </chakra.span>
-          <chakra.button
-            bg="gray.800"
-            fontSize="xs"
-            fontWeight="bold"
-            color="white"
-            px={2}
-            py={1}
-            rounded="lg"
-            textTransform="uppercase"
-            _hover={{
-              bg: "gray.700",
-              _dark: { bg: "gray.600" },
-            }}
-            _focus={{
-              bg: "gray.700",
-              _dark: { bg: "gray.600" },
-              outline: "none",
-            }}
-          >
-            Add to cart
-          </chakra.button>
+          <AddToCartButton id={id} />
         </Flex>
       </Box>
     </Flex>
