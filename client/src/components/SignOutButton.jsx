@@ -12,6 +12,7 @@ export const SignOutButton = ({ onClick }) => {
       color={"white"}
       bg={"pink.600"}
       href={"#"}
+      minWidth={"100px"}
       _hover={{
         bg: "gray.500",
       }}

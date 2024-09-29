@@ -12,6 +12,7 @@ export const SignUpButton = ({ onClick }) => {
       color={"white"}
       bg={"pink.400"}
       href={"#"}
+      minWidth={"100px"}
       _hover={{
         bg: "pink.300",
       }}

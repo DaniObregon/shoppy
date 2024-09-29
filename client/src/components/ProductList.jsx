@@ -42,6 +42,7 @@ export const ProductList = () => {
       {products.map((product) => (
         <Card
           key={product.id}
+          id={product.id}
           brand={product.brand}
           model={product.model}
           description={product.description}
