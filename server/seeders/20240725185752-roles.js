@@ -14,9 +14,5 @@ module.exports = {
     );
   },
 
-  async down(queryInterface, Sequelize) {
-    // await queryInterface.bulkDelete('Roles', {
-    //   name: { [Sequelize.Op.in]: ['admin', 'client', 'owner'] }
-    // }, {});
-  },
+  async down(queryInterface, Sequelize) {},
 };

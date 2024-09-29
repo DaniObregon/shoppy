@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+//TODO: Revisar la logica de creacion de usuario ya que siempre se crea con role 1
 router.post("/google/callback", async (req, res) => {
   const { email, name, role_id } = req.body;
 

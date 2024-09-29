@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 process.on("SIGINT", async () => {
-  console.log("\nStopping the server...");
+  console.log("\nStopping server...");
   process.exit();
 });
 

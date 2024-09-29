@@ -25,10 +25,10 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
       ></Box>
 
       <Box
-        w={{ base: "80%", md: "70%" }} // Caja de datos más pequeña y centrada
+        w={{ base: "80%", md: "70%" }} // Caja de datos pequeña y centrada
         bg="white"
         _dark={{ bg: "gray.800" }}
-        mt={-10} // Superponer la caja de datos en la imagen
+        mt={-10} // Superpone la caja de datos en la imagen
         shadow="lg"
         rounded="lg"
         overflow="hidden"

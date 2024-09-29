@@ -94,7 +94,7 @@ export const Navbar = () => {
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
-            p={2} // Ajustar padding si se necesita para alineación
+            p={2}
           />
         </Stack>
       </Flex>
