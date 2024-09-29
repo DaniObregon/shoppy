@@ -42,15 +42,17 @@ export const Navbar = () => {
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
-        px={{ base: 4 }}
+        px={{ base: 10 }}
         borderBottom={1}
-        borderTop={1} // Asegúrate de que este borde sea el correcto
+        borderTop={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justify={"space-between"}
-        marginTop={8} // Ajusta esto si es necesario
+        marginTop={8}
+        marginBottom={1}
         paddingTop="9px"
+        border={-10}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -88,24 +90,14 @@ export const Navbar = () => {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
+          alignItems="center" // Asegura que todo esté alineado verticalmente
         >
-          {/* {user && (
-            <Text
-              p={2}
-              color="gray.600"
-              whiteSpace="nowrap"
-              maxWidth="200px"
-              overflow="hidden"
-              textOverflow="ellipsis"
-            >
-              Hola, {user.name}
-            </Text>
-          )} */}
-          <Auth /> {/* Este componente manejará tanto login como logout */}
+          <Auth /> {/* Este componente maneja tanto login como logout */}
           <IconButton
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
+            p={2} // Ajustar padding si se necesita para alineación
           />
         </Stack>
       </Flex>
