@@ -1,23 +1,27 @@
-// /client/src/slices/userSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
+// Estado inicial del usuario
 const initialState = {
-  user: null, // Estado inicial del usuario
+  name: null,
+  email: null,
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: "userInfo",
   initialState,
   reducers: {
     login: (state, action) => {
-      state.user = action.payload; // Guardar los datos del usuario en el estado
+      // Guarda los datos del usuario en el estado redux
+      state.name = action.payload.name;
+      state.email = action.payload.email;
     },
     logout: (state) => {
-      state.user = null; // Limpiar el estado al cerrar sesión
+      // Limpia el estado al cerrar sesión
+      state.name = null;
+      state.email = null;
     },
   },
 });
 
 export const { login, logout } = userSlice.actions;
-
 export default userSlice.reducer;
