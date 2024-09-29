@@ -28,16 +28,12 @@ export const Auth = ({ onAuthSuccess }) => {
         role_id: 1, // Rol por defecto (client)
       };
 
-      await axios.post(
-        "/api/auth/signup",
-        JSON.stringify(userData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // El token se envia en un header
-          },
-        }
-      );
+      await axios.post("/api/auth/signup", JSON.stringify(userData), {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // El token se envia en un header
+        },
+      });
 
       // Actualizar el estado global de Redux con los datos del usuario
       dispatch(
@@ -79,7 +75,7 @@ export const Auth = ({ onAuthSuccess }) => {
             overflow="hidden"
             textOverflow="ellipsis"
           >
-            Hola, {userInfo.name}
+            Hola, {userInfo.name.split(" ")[0]}
           </Text>
           <SignOutButton onClick={signOutUser} />
         </Stack>
