@@ -10,6 +10,10 @@ export const Card = ({ brand, model, description, price, imgUrl }) => {
       w="full"
       mx="auto"
       mb={4}
+      transition="transform 0.15s ease-in-out"
+      _hover={{
+        transform: "scale(1.015)",
+      }}
     >
       <Box
         bg="gray.300"

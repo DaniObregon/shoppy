@@ -74,6 +74,7 @@ export const Auth = ({ onAuthSuccess }) => {
             maxWidth="200px"
             overflow="hidden"
             textOverflow="ellipsis"
+            fontSize={"m"}
           >
             Hola, {userInfo.name.split(" ")[0]}
           </Text>
