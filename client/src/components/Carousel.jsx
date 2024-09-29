@@ -48,7 +48,7 @@ export const Carousel = () => {
       w="full"
       bg="#edf3f8"
       _dark={{ bg: "#3e3e3e" }}
-      p={10}
+      p={0}
       alignItems="center"
       justifyContent="center"
     >
