@@ -1,11 +1,25 @@
 import React from "react";
 import { chakra } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+
 
 export const AddToCartButton = ({ id, onClick }) => {
+  // Obtener el role_id desde el estado de Redux
+  const role_id = useSelector((state) => state.userInfo.role_id);
+
   const handleAddToCart = (event) => {
     event.stopPropagation(); // Evita la propagación del clic hacia el contenedor de la tarjeta
+
     // Lógica para agregar el producto al carrito
-    console.log(`Producto con id ${id} agregado al carrito.`);
+    if (role_id === 2) {
+      // Usuario con rol 'admin'
+      console.log(`Producto con id ${id} agregado al carrito.`);
+    } else {
+      // Si no es un admin
+      console.error(
+        "Acceso denegado: Solo los admin pueden agregar productos al carrito."
+      );
+    }
   };
 
   return (
