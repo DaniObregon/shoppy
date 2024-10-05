@@ -16,9 +16,20 @@ router.post("/google/callback", async (req, res) => {
         email,
         role_id: role_id || 1, // Asignar rol por defecto si no se proporciona uno
       });
+      console.log("Usuario creado en la base de datos:", user);
+    } else {
+      console.log("Usuario existente encontrado:", user);
     }
 
-    res.status(200).send({ user });
+    // Enviar la información del usuario, incluyendo el role_id
+    res
+      .status(200)
+      .send({ name: user.name, email: user.email, role_id: user.role_id });
+    console.log("Datos enviados al frontend:", {
+      name: user.name,
+      email: user.email,
+      role_id: user.role_id,
+    });
   } catch (error) {
     console.error("Error during user creation or verification: ", error);
     res.status(500).send({ error: "Error creating or verifying user" });

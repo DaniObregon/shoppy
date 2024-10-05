@@ -28,18 +28,32 @@ export const Auth = ({ onAuthSuccess }) => {
         role_id: 1, // Rol por defecto (client)
       };
 
-      await axios.post("/api/auth/signup", JSON.stringify(userData), {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // El token se envia en un header
-        },
-      });
+      console.log("Datos que se envían al backend:", userData);
+
+      const response = await axios.post(
+        "/api/auth/signup",
+        JSON.stringify(userData),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // El token se envia en un header
+          },
+        }
+      );
+
+      console.log("Respuesta del backend:", response.data);
+
+      // Accede a las propiedades del objeto `user` desde la respuesta del backend
+      const { name, email, role } = response.data.user;
+
+      console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
 
       // Actualizar el estado global de Redux con los datos del usuario
       dispatch(
         login({
-          name: user.displayName,
-          email: user.email,
+          name: name,
+          email: email,
+          role_id: role,
         })
       );
 
