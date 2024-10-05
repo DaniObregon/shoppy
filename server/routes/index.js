@@ -1,10 +1,11 @@
-const express = require("express");
+//const express = require("express");
 const router = require("express").Router();
 const adminApiRouter = require("./admin-api");
 const apiRouter = require("./api");
-const app = express();
+const authenticateUser = require("../middleware/auth");
+const authorizeRoles = require("../middleware/authorization");
 
-router.use("/admin-api", adminApiRouter);
+router.use("/admin-api", authenticateUser, authorizeRoles(2, 3), adminApiRouter);
 router.use("/api", apiRouter);
 
 router.route("/").get((req, response) => {
