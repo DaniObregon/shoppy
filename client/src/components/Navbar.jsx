@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
 import { Auth } from "./Auth";
+import { DarkModeToggle } from "./DarkModeToggle";
 
 export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -90,12 +91,8 @@ export const Navbar = () => {
         >
           <Auth /> {/* Este componente maneja tanto login como logout */}
 
-          <IconButton
-            aria-label="Toggle Dark Mode"
-            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-            onClick={toggleColorMode}
-            p={2}
-          />
+          <DarkModeToggle />
+
         </Stack>
       </Flex>
 
