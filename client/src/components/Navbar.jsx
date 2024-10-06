@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/butterfly-02.png";
 import {
   Box,
   Flex,
@@ -21,16 +20,14 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  MoonIcon,
-  SunIcon,
 } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/react";
 import { Auth } from "./Auth";
 import { DarkModeToggle } from "./DarkModeToggle";
+import { Logo } from "./Logo";
 
 export const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Box mt="60px" marginBottom={1} marginTop={5}>
@@ -66,13 +63,7 @@ export const Navbar = () => {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image
-            src={logo}
-            alt="Logo"
-            boxSize="50px"
-            marginLeft={3}
-            marginRight={-5}
-          />
+          <Logo />
           <Flex
             display={{ base: "none", md: "flex" }}
             ml={10}
@@ -90,9 +81,7 @@ export const Navbar = () => {
           alignItems="center" // Asegura que todo esté alineado verticalmente
         >
           <Auth /> {/* Este componente maneja tanto login como logout */}
-
           <DarkModeToggle />
-
         </Stack>
       </Flex>
 
