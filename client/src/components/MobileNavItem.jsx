@@ -36,6 +36,7 @@ export const MobileNavItem = ({ label, children, href, isOpen, onToggle }) => {
             transform={isOpen ? "rotate(180deg)" : ""}
             w={6}
             h={6}
+            aria-expanded={isOpen ? "true" : "false"}
           />
         )}
       </Flex>
@@ -49,7 +50,7 @@ export const MobileNavItem = ({ label, children, href, isOpen, onToggle }) => {
           borderColor={useColorModeValue("gray.200", "gray.700")}
           align={"start"}
         >
-          {children &&
+          {Array.isArray(children) &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
