@@ -1,52 +1,60 @@
-export const NAV_ITEMS = [
+import { useNavigate } from "react-router-dom";
+
+export const NAV_ITEMS = (role_id) => {
+  const navigate = useNavigate();
+
+  const items = [
     {
       label: "Capilares",
-      href: "#capilares",
+      onClick: () => navigate("/capilares"),
       children: [
         {
           label: "Coloración",
-          href: "#coloracion",
+          onClick: () => navigate("/coloracion"),
         },
         {
           label: "Styling",
-          href: "#styling",
+          onClick: () => navigate("/styling"),
         },
         {
           label: "HairCare",
-          href: "#haircare",
+          onClick: () => navigate("/haircare"),
         },
         {
           label: "Forma",
-          href: "#forma",
+          onClick: () => navigate("/forma"),
         },
       ],
     },
     {
       label: "Manos y Uñas",
-      href: "#manos-y-unas",
+      onClick: () => navigate("/manos-y-unas"),
       children: [
         {
           label: "Prueba children",
-          href: "#coloracion",
+          onClick: () => navigate("/coloracion"),
         },
       ],
     },
     {
       label: "Maquillaje",
-      href: "#maquillaje",
-    },
-    {
-      label: "Accesorios",
-      href: "#accesorios",
+      onClick: () => navigate("/maquillaje"),
     },
     {
       label: "Equipamientos",
-      href: "#equipamientos",
+      onClick: () => navigate("/equipamientos"),
     },
     {
       label: "Estética y Spa",
-      href: "#estetica-y-spa",
+      onClick: () => navigate("/estetica-y-spa"),
     },
   ];
-  
-  
+
+  if (role_id >= 2) {
+    items.push({
+      label: "Admin Panel",
+      onClick: () => navigate("/admin-panel"), // Ruta correcta para el panel de admin
+    });
+  }
+  return items;
+};

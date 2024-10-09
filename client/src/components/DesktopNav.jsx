@@ -8,6 +8,7 @@ import {
   PopoverContent,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { DesktopSubNav } from "./DesktopSubNav";
 import { NAV_ITEMS } from "../data/navItems";
 
@@ -16,15 +17,19 @@ export const DesktopNav = () => {
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
+  // Obtener el rol del usuario desde Redux
+  const { role_id } = useSelector((state) => state.userInfo);
+
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS(role_id).map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
+                // href={navItem.href ?? "#"}
+                onClick={navItem.onClick}
                 fontSize={"m"}
                 fontWeight={500}
                 color={linkColor}

@@ -10,15 +10,15 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-export const DesktopSubNav = ({ label, href, subLabel }) => {
+export const DesktopSubNav = ({ label, onClick, subLabel }) => {
   return (
     <Link
-      href={href}
       role={"group"}
       display={"block"}
       p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      onClick={onClick}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Stack, useColorModeValue } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { MobileNavItem } from "./MobileNavItem";
 import { NAV_ITEMS } from "../data/navItems";
 
 export const MobileNav = () => {
   const [openIndex, setOpenIndex] = useState(null); // Estado para controlar qué ítem está abierto
+
+  // Obtener el rol del usuario desde Redux
+  const { role_id } = useSelector((state) => state.userInfo);
 
   return (
     <Stack
@@ -12,7 +16,7 @@ export const MobileNav = () => {
       p={4}
       display={{ md: "none" }}
     >
-      {NAV_ITEMS.map((navItem, index) => (
+      {NAV_ITEMS(role_id).map((navItem, index) => (
         <MobileNavItem
           key={navItem.label}
           {...navItem}

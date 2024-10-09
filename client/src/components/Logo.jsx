@@ -7,7 +7,7 @@ export const Logo = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/admin");
+    navigate("/logo-navigation");
   };
   return (
     <Image

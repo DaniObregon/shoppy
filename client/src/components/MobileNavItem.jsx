@@ -10,18 +10,18 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-export const MobileNavItem = ({ label, children, href, isOpen, onToggle }) => {
+export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) => {
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? "#"}
+        as={"div"}
         justify={"space-between"}
         align={"center"}
         _hover={{
           textDecoration: "none",
         }}
+        onClick={onClick}
       >
         <Text
           fontWeight={600}
