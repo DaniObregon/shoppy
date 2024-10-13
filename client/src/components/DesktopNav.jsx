@@ -9,8 +9,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { DesktopSubNav } from "./DesktopSubNav";
-import { NAV_ITEMS } from "../data/navItems";
+import { NAV_ITEMS } from "../utils/navItems";
 
 export const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
@@ -19,6 +20,11 @@ export const DesktopNav = () => {
 
   // Obtener el rol del usuario desde Redux
   const { role_id } = useSelector((state) => state.userInfo);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -29,7 +35,8 @@ export const DesktopNav = () => {
               <Link
                 p={2}
                 // href={navItem.href ?? "#"}
-                onClick={navItem.onClick}
+                // onClick={navItem.onClick}
+                onClick={() => handleNavigation(navItem.path)}
                 fontSize={"m"}
                 fontWeight={500}
                 color={linkColor}
