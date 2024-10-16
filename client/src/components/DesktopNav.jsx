@@ -34,8 +34,6 @@ export const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                // href={navItem.href ?? "#"}
-                // onClick={navItem.onClick}
                 onClick={() => handleNavigation(navItem.path)}
                 fontSize={"m"}
                 fontWeight={500}

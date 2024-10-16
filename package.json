@@ -18,7 +18,12 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "supertest": "^7.0.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "supertest": "^7.0.0",
+    "util": "^0.12.5"
   }
 }
