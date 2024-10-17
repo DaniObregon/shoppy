@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToCartButton component should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="css-cme9bm"
+  >
+    Add to cart
+  </button>
+</DocumentFragment>
+`;

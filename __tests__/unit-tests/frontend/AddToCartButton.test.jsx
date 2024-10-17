@@ -73,4 +73,13 @@ describe("AddToCartButton component", () => {
       "Acceso denegado: Solo los admin pueden agregar productos al carrito."
     );
   });
+
+  test("should match snapshot", () => {
+    const { asFragment } = render(
+      <Provider store={store}>
+        <AddToCartButton id="1" />
+      </Provider>
+    );
+    expect(asFragment()).toMatchSnapshot(); // Toma un snapshot del componente
+  });
 });
