@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-8fsufl"
+  >
+    <div
+      class="css-1359rg0"
+      style="background-image: url(https://example.com/image.jpg);"
+    />
+    <div
+      class="css-q2obky"
+    >
+      <h3
+        class="css-vxfob9"
+      >
+        BrandName
+      </h3>
+      <p
+        class="css-1ipsiyd"
+      >
+        ModelName
+      </p>
+      <p
+        class="css-1ipsiyd"
+      >
+        This is a description.
+      </p>
+      <div
+        class="css-ks8lat"
+      >
+        <span
+          class="css-1qkcym"
+        >
+          $99.99
+        </span>
+        <button
+          class="css-1xp31i2"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;
