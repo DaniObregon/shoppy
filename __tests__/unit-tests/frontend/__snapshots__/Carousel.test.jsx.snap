@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="carousel"
+    class="css-1uskzmk"
+    id="carousel"
+    role="region"
+  >
+    <div
+      class="css-1r09swm"
+    >
+      <div
+        class="css-jolvvj"
+      >
+        <div
+          class="css-1egvv0c"
+          style="transform: translateY(0px);"
+        >
+          <p
+            class="chakra-text css-p5m561"
+          >
+            1 / 4
+          </p>
+          <img
+            alt="Slide 1"
+            class="chakra-image css-1ekmhiq"
+            src="https://www.brooksrunning.com/on/demandware.static/-/Library-Sites-BrooksRunningShared/default/dw26f51a29/cms-content/Project/ADT/Brooks-Running/EMEA/Blog/2023/April/best-running-shoes-for-knee-pain/S23_RHB_knee_Hero_XL.jpg"
+            style="opacity: 1; transition: opacity 0.3s ease;"
+          />
+        </div>
+        <div
+          class="css-1egvv0c"
+          style="transform: translateY(0px);"
+        >
+          <p
+            class="chakra-text css-p5m561"
+          >
+            2 / 4
+          </p>
+          <img
+            alt="Slide 2"
+            class="chakra-image css-1ekmhiq"
+            src="https://hips.hearstapps.com/hmg-prod/images/run-reebok-running-shoes-64e3beadbe692.jpg"
+            style="opacity: 1; transition: opacity 0.3s ease;"
+          />
+        </div>
+        <div
+          class="css-1egvv0c"
+          style="transform: translateY(0px);"
+        >
+          <p
+            class="chakra-text css-p5m561"
+          >
+            3 / 4
+          </p>
+          <img
+            alt="Slide 3"
+            class="chakra-image css-1ekmhiq"
+            src="https://brand.assets.adidas.com/capi/enUS/Images/1839569-seo-how-to-break-in-running-shoes-body-image-2_221-681798.jpg"
+            style="opacity: 1; transition: opacity 0.3s ease;"
+          />
+        </div>
+        <div
+          class="css-1egvv0c"
+          style="transform: translateY(0px);"
+        >
+          <p
+            class="chakra-text css-p5m561"
+          >
+            4 / 4
+          </p>
+          <img
+            alt="Slide 4"
+            class="chakra-image css-1ekmhiq"
+            src="https://portcrossfit.com/wp-content/uploads/2023/08/run-nike-running-shoes-646cdd1a19c41-1200x600.jpg"
+            style="opacity: 1; transition: opacity 0.3s ease;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;
