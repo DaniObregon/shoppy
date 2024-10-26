@@ -22,7 +22,7 @@ describe("Carousel component", () => {
     );
 
     const slidesCount = slides.length;
-    const images = screen.getAllByAltText(/carousel image/i);
+    const images = screen.getAllByAltText(/Slide \d+/i);
 
     // Verificar que se renderizan todas las imágenes de los slides
     expect(images).toHaveLength(slidesCount);
@@ -111,5 +111,27 @@ describe("Carousel component", () => {
     // Avanzar el temporizador y verificar que el slide cambia
     jest.advanceTimersByTime(intervalTime);
     expect(screen.getByText(`2 / ${slides.length}`)).toBeInTheDocument(); // Verifica que el siguiente slide esté visible
+  });
+
+  test("should remove a slide when its image fails to load", () => {
+    render(
+      <ChakraProvider>
+        <Carousel />
+      </ChakraProvider>
+    );
+
+    const initialSlidesCount = slides.length;
+    const imageWithError = screen.getAllByRole("img")[1]; // Simula el error en la segunda imagen
+
+    // Disparar el evento de error en la carga de la imagen
+    fireEvent.error(imageWithError);
+
+    // Verificar que el número de slides visibles se haya reducido en 1
+    expect(screen.getAllByRole("img")).toHaveLength(initialSlidesCount - 1);
+
+    // Verificar que la numeración se actualizó correctamente
+    expect(
+      screen.getByText(`1 / ${initialSlidesCount - 1}`)
+    ).toBeInTheDocument();
   });
 });

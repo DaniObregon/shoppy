@@ -24,7 +24,7 @@ exports[`Carousel component should match snapshot 1`] = `
             1 / 4
           </p>
           <img
-            alt="carousel image"
+            alt="Slide 1"
             class="chakra-image css-1ekmhiq"
             src="https://www.brooksrunning.com/on/demandware.static/-/Library-Sites-BrooksRunningShared/default/dw26f51a29/cms-content/Project/ADT/Brooks-Running/EMEA/Blog/2023/April/best-running-shoes-for-knee-pain/S23_RHB_knee_Hero_XL.jpg"
             style="opacity: 1; transition: opacity 0.3s ease;"
@@ -40,7 +40,7 @@ exports[`Carousel component should match snapshot 1`] = `
             2 / 4
           </p>
           <img
-            alt="carousel image"
+            alt="Slide 2"
             class="chakra-image css-1ekmhiq"
             src="https://hips.hearstapps.com/hmg-prod/images/run-reebok-running-shoes-64e3beadbe692.jpg"
             style="opacity: 1; transition: opacity 0.3s ease;"
@@ -56,7 +56,7 @@ exports[`Carousel component should match snapshot 1`] = `
             3 / 4
           </p>
           <img
-            alt="carousel image"
+            alt="Slide 3"
             class="chakra-image css-1ekmhiq"
             src="https://brand.assets.adidas.com/capi/enUS/Images/1839569-seo-how-to-break-in-running-shoes-body-image-2_221-681798.jpg"
             style="opacity: 1; transition: opacity 0.3s ease;"
@@ -72,7 +72,7 @@ exports[`Carousel component should match snapshot 1`] = `
             4 / 4
           </p>
           <img
-            alt="carousel image"
+            alt="Slide 4"
             class="chakra-image css-1ekmhiq"
             src="https://portcrossfit.com/wp-content/uploads/2023/08/run-nike-running-shoes-646cdd1a19c41-1200x600.jpg"
             style="opacity: 1; transition: opacity 0.3s ease;"
