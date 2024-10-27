@@ -11,6 +11,7 @@ export const DarkModeToggle = () => {
       icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
       onClick={toggleColorMode}
       p={2}
+      data-testid="dark-mode-toggle"
     />
   );
 };
