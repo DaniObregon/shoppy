@@ -10,14 +10,3 @@ exports[`SignUpButton component should match snapshot 1`] = `
   </button>
 </DocumentFragment>
 `;
-
-exports[`SignUpButton components should match snapshot 1`] = `
-<DocumentFragment>
-  <button
-    class="chakra-button css-1wq1ohy"
-    type="button"
-  >
-    Ingresar
-  </button>
-</DocumentFragment>
-`;
