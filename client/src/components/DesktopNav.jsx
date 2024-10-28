@@ -27,7 +27,7 @@ export const DesktopNav = () => {
   };
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} spacing={4} aria-label="desktop navigation">
       {NAV_ITEMS(role_id).map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
@@ -42,6 +42,7 @@ export const DesktopNav = () => {
                   textDecoration: "none",
                   color: linkHoverColor,
                 }}
+                role="link"
               >
                 {navItem.label}
               </Link>

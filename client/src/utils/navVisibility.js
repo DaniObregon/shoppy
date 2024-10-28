@@ -1,4 +1,3 @@
-// /src/utils/navVisibility.js
 export const getVisibleNavItems = (role_id) => {
     const navConfig = {
       client: [
