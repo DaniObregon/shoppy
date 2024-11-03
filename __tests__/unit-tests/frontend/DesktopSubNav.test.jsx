@@ -43,7 +43,7 @@ describe("DesktopSubNav component", () => {
       </Provider>
     );
 
-    const navLinks = screen.getAllByRole("group");
+    const navLinks = screen.getAllByRole("link");
     expect(navLinks.length).toBeGreaterThan(0);
   });
 

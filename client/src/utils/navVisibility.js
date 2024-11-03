@@ -29,7 +29,7 @@ export const getVisibleNavItems = (role_id) => {
           children: [
             {
               label: "Prueba children",
-              path: "/coloracion",
+              path: "/prueba-children",
             },
           ],
         },
