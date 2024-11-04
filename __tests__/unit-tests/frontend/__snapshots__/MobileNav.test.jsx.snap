@@ -20,6 +20,7 @@ exports[`MobileNav component should match snapshot 1`] = `
           aria-expanded="false"
           class="chakra-icon chakra-icon css-btfxl7"
           focusable="false"
+          role="img"
           viewBox="0 0 24 24"
         >
           <path
@@ -77,6 +78,7 @@ exports[`MobileNav component should match snapshot 1`] = `
           aria-expanded="false"
           class="chakra-icon chakra-icon css-btfxl7"
           focusable="false"
+          role="img"
           viewBox="0 0 24 24"
         >
           <path

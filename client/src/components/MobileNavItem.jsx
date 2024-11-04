@@ -38,6 +38,7 @@ export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) =>
         {children && (
           <Icon
             as={ChevronDownIcon}
+            role="img"
             transition={"all .25s ease-in-out"}
             transform={isOpen ? "rotate(180deg)" : ""}
             w={6}
