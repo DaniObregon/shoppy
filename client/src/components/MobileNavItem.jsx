@@ -2,7 +2,6 @@ import React from "react";
 import {
   Stack,
   Link,
-  Text,
   Icon,
   useColorModeValue,
   Flex,
@@ -22,15 +21,18 @@ export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) =>
           textDecoration: "none",
         }}
       >
-        {/* El texto principal maneja solo la navegación */}
-        <Text
+        {/* Usamos Link en lugar de Text, manteniendo el estilo */}
+        <Link
           fontWeight={600}
           color={useColorModeValue("gray.600", "gray.200")}
           onClick={onClick}
           cursor="pointer"
+          _hover={{
+            textDecoration: "none",
+          }}
         >
           {label}
-        </Text>
+        </Link>
         
         {/* El icono flecha maneja la apertura/cierre del submenú */}
         {children && (
@@ -72,9 +74,16 @@ export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) =>
                   {child.label}
                 </Link>
               ) : (
-                <Text key={child.label} py={2} cursor="default">
+                <Link
+                  key={child.label}
+                  py={2}
+                  cursor="default"
+                  _hover={{
+                    textDecoration: "none",
+                  }}
+                >
                   {child.label}
-                </Text>
+                </Link>
               )
             ))}
         </Stack>
