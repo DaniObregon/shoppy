@@ -1,4 +1,5 @@
 import userReducer from "./slices/userSlice";
+import productReducer from "./slices/productSlice";
 import storage from "redux-persist/lib/storage"; // Usa el localStorage del navegador
 import { configureStore } from "@reduxjs/toolkit";
 import {
@@ -24,6 +25,7 @@ const persistedReducer = persistReducer(persistConfig, userReducer);
 export const store = configureStore({
   reducer: {
     userInfo: persistedReducer,
+    product: productReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
