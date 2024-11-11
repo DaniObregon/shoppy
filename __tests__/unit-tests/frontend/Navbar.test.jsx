@@ -14,7 +14,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: jest.fn(),
 }));
 
-jest.mock("../../../client/src/assets/butterfly-02.png", () => "");
+jest.mock("../../../client/src/assets/butterflyLogo.png", () => "");
 
 jest.mock("../../../client/src/components/MobileNav", () => {
   return {

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/butterfly-02.png";
+import logo from "../assets/butterflyLogo.png";
 import { useNavigate } from "react-router-dom";
 import { Image } from "@chakra-ui/react";
 

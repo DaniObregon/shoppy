@@ -12,7 +12,7 @@ jest.mock("react-router-dom", () => ({
 }));
 
 // Mock de la imagen para evitar errores de importación
-jest.mock("../../../client/src/assets/butterfly-02.png", () => "logo-mock.png");
+jest.mock("../../../client/src/assets/butterflyLogo.png", () => "logo-mock.png");
 
 describe("Logo component", () => {
   test("Should render Logo component with expected structure", () => {
