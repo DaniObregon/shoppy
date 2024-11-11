@@ -47,7 +47,7 @@ export const ProductDetails = () => {
     <Box padding="4" maxW="full" mx="auto">
       {product && (
         <>
-          <Grid templateColumns="70% 30%" gap="2" mt="4">
+          <Grid templateColumns="70% 30%" gap="2" mt="4" minWidth="1000px">
             {/* Left side: Image */}
             <GridItem
               ml="2"
@@ -59,6 +59,7 @@ export const ProductDetails = () => {
               justifyContent="center"
               alignItems="center"
               padding="4"
+              minWidth="600px"
             >
               <Image
                 src={product.imgUrl}
@@ -76,6 +77,7 @@ export const ProductDetails = () => {
               boxShadow="sm"
               padding="4"
               ml="8"
+              minWidth="300px"
             >
               <VStack align="start" spacing="4">
                 <Heading
