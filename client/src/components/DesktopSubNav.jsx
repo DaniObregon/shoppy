@@ -1,3 +1,4 @@
+// /home/danio/projects/shoppy/client/src/components/DesktopSubNav.jsx
 import React from "react";
 import {
   Box,
@@ -9,8 +10,19 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
-export const DesktopSubNav = ({ label, onClick, subLabel }) => {
+export const DesktopSubNav = ({ label, path, subLabel }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    if (path) {
+      navigate(path);
+    } else {
+      e.preventDefault();
+    }
+  };
+
   return (
     <Link
       role={"group"}
@@ -18,7 +30,8 @@ export const DesktopSubNav = ({ label, onClick, subLabel }) => {
       p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-      onClick={onClick}
+      onClick={handleClick} // Usa `handleClick` para manejar la navegación
+      cursor="pointer"
     >
       <Stack direction={"row"} align={"center"}>
         <Box>

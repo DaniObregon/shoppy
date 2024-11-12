@@ -2,7 +2,6 @@ import React from "react";
 import {
   Stack,
   Link,
-  Text,
   Icon,
   useColorModeValue,
   Flex,
@@ -12,7 +11,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 
 export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) => {
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4}>
       <Flex
         py={2}
         as={"div"}
@@ -21,26 +20,40 @@ export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) =>
         _hover={{
           textDecoration: "none",
         }}
-        onClick={onClick}
       >
-        <Text
+        {/* Usamos Link en lugar de Text, manteniendo el estilo */}
+        <Link
           fontWeight={600}
           color={useColorModeValue("gray.600", "gray.200")}
+          onClick={onClick}
+          cursor="pointer"
+          _hover={{
+            textDecoration: "none",
+          }}
         >
           {label}
-        </Text>
+        </Link>
+        
+        {/* El icono flecha maneja la apertura/cierre del submenú */}
         {children && (
           <Icon
             as={ChevronDownIcon}
+            role="img"
             transition={"all .25s ease-in-out"}
             transform={isOpen ? "rotate(180deg)" : ""}
             w={6}
             h={6}
             aria-expanded={isOpen ? "true" : "false"}
+            onClick={(e) => {
+              e.stopPropagation(); // Evita la propagación del evento para no activar la navegación
+              onToggle();
+            }}
+            cursor="pointer"
           />
         )}
       </Flex>
 
+      {/* Colapso del submenú */}
       <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
           mt={2}
@@ -52,9 +65,27 @@ export const MobileNavItem = ({ label, children, onClick, isOpen, onToggle }) =>
         >
           {Array.isArray(children) &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
+              child.path ? (
+                <Link
+                  key={child.label}
+                  py={2}
+                  href={child.path}
+                  cursor="pointer"
+                >
+                  {child.label}
+                </Link>
+              ) : (
+                <Link
+                  key={child.label}
+                  py={2}
+                  cursor="default"
+                  _hover={{
+                    textDecoration: "none",
+                  }}
+                >
+                  {child.label}
+                </Link>
+              )
             ))}
         </Stack>
       </Collapse>

@@ -10,7 +10,7 @@ import { SignUpButton } from "../../../client/src/components/SignUpButton";
  * Snapshot Testing: Asegura la deteccion cambios inesperados en el componente a medida que el proyecto evoluciona.
  */
 
-describe("SignUpButton components", () => {
+describe("SignUpButton component", () => {
   test("should render the button with the correct name", () => {
     render(<SignUpButton onClick={() => {}} />);
     const button = screen.getByRole("button", { name: /ingresar/i });

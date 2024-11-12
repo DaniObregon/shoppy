@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DesktopSubNav component should match snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="chakra-link css-g5555e"
+    role="group"
+  >
+    <div
+      class="chakra-stack css-1igwmid"
+    >
+      <div
+        class="css-0"
+      >
+        <p
+          class="chakra-text css-sc37ud"
+        >
+          Sample Label
+        </p>
+        <p
+          class="chakra-text css-itvw0n"
+        />
+      </div>
+      <div
+        class="css-2gz105"
+      >
+        <svg
+          class="chakra-icon chakra-icon css-1ossod7"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </a>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

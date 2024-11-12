@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileNav component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-stack css-1aylv9m"
+  >
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Capilares
+        </a>
+        <svg
+          aria-expanded="false"
+          class="chakra-icon chakra-icon css-btfxl7"
+          focusable="false"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        >
+          <a
+            class="chakra-link css-41nuu3"
+            href="/coloracion"
+          >
+            Coloración
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/styling"
+          >
+            Styling
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/haircare"
+          >
+            HairCare
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/forma"
+          >
+            Forma
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Manos y Uñas
+        </a>
+        <svg
+          aria-expanded="false"
+          class="chakra-icon chakra-icon css-btfxl7"
+          focusable="false"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        >
+          <a
+            class="chakra-link css-41nuu3"
+            href="/prueba-children"
+          >
+            Prueba children
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Maquillaje
+        </a>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        />
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Equipamientos
+        </a>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        />
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Estética y Spa
+        </a>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        />
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

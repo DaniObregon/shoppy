@@ -1,4 +1,3 @@
-// /src/utils/navVisibility.js
 export const getVisibleNavItems = (role_id) => {
     const navConfig = {
       client: [
@@ -30,7 +29,7 @@ export const getVisibleNavItems = (role_id) => {
           children: [
             {
               label: "Prueba children",
-              path: "/coloracion",
+              path: "/prueba-children",
             },
           ],
         },
