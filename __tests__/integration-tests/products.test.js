@@ -1,6 +1,6 @@
 const request = require('supertest');
 const { sequelize, Product  } = require('../../server/models');
-const app = require('../../server/server'); // Importa el app sin iniciar el servidor
+const app = require('../../server/server');
 
 describe('Integration Test - GET /api/products', () => {
   beforeAll(async () => {

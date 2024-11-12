@@ -86,6 +86,14 @@ export const ProductDetails = () => {
                   fontWeight="bold"
                   textAlign="center"
                 >
+                  {product.name}
+                </Heading>
+                <Heading
+                  as="h2"
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  textAlign="center"
+                >
                   {product.brand} - {product.model}
                 </Heading>
                 <Text fontSize="xl" color="teal.500" fontWeight="bold">
@@ -94,9 +102,7 @@ export const ProductDetails = () => {
                 <Link color="blue.300" fontWeight="bold" fontStyle="italic">
                   Elegir forma de pago
                 </Link>
-                <Text color="gray.600">
-                  {product.availableQuantity} disponibles
-                </Text>
+                <Text color="gray.600">{product.stock} disponibles</Text>
 
                 {/* New styled box for buttons and Mercado Pago info */}
                 <Box
@@ -131,7 +137,7 @@ export const ProductDetails = () => {
                       color="teal.500"
                       width="100%"
                     >
-                      ¡Resérvalo!
+                      ¡Te lo enviamos gratis con la primer cuota!
                     </Button>
                     {/* TooltipBadge for free shipping message */}
                     <TooltipBadge text="Envío gratis en compras a partir de $30.000." />
