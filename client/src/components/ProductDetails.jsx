@@ -56,6 +56,7 @@ export const ProductDetails = () => {
       {product && (
         <>
           <Grid templateColumns="70% 30%" gap="2" mt="4" minWidth="1000px">
+            {/* Imagen */}
             <GridItem
               ml="2"
               border="1px solid"
@@ -75,7 +76,7 @@ export const ProductDetails = () => {
                 width="80%"
               />
             </GridItem>
-
+            {/* Zona de compra */}
             <GridItem
               border="1px solid"
               borderColor={borderColor}
@@ -199,6 +200,29 @@ export const ProductDetails = () => {
                       ))}
                     </Tbody>
                   </Table>
+                </Box>
+              </Box>
+            </GridItem>
+            {/* GridItem Vacio */}
+            <GridItem></GridItem>
+            {/* Zona de Descripcion del producto */}
+            <GridItem>
+              <Box mt="10" padding="6" ml="2">
+                <Heading
+                  as="h3"
+                  fontSize="xl"
+                  fontWeight="bold"
+                  textAlign="left"
+                  mb="4"
+                  ml="5"
+                  mt="5"
+                >
+                  Descripcion
+                </Heading>
+                <Box overflow="hidden" mt="4">
+                  <Text fontSize="xl" color="gray.400" fontWeight="bold">
+                    {product.description}
+                  </Text>
                 </Box>
               </Box>
             </GridItem>
