@@ -8,14 +8,19 @@ dotenv.config();
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: ['src/config/firebaseConfig.js'] // Evita empaquetar el archivo
+      external: ['src/config/firebaseConfig.js'], // Evita empaquetar el archivo
     }
   },
   plugins: [react()],
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        // Ajustar el target dependiendo del entorno
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
+        secure: false,
+      },
+      "/admin-api": {
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
         secure: false,
       },
       port: process.env.SERVER_PORT,
@@ -25,6 +30,3 @@ export default defineConfig({
     },
   },
 });
-
-//'/api': 'http://localhost:' + process.env.SERVER_PORT, // Usando concatenación de cadenas
-//'/admin-api': 'http://localhost:' + process.env.SERVER_PORT, // Añadir proxy para admin-api
