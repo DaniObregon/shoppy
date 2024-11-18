@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "../.env" });
 
 console.log(
-  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATABASE_URL:",
+  "> > > > DATABASE_URL:",
   process.env.DATABASE_URL
 );
 
@@ -23,7 +23,7 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
   },
   production: {
-    url: process.env.DATABASE_URL, // Aquí usas la variable de entorno
+    url: process.env.DATABASE_URL,
     dialect: "postgres",
     dialectOptions: {
       ssl: {
