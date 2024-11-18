@@ -1,5 +1,7 @@
 require("dotenv").config({ path: "../.env" });
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PGUSER:', process.env.PGUSER);  
+
 module.exports = {
   development: {
     username: process.env.DB_USER,
@@ -18,12 +20,16 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
   },
   production: {
-    use_env_variable: "DATABASE_URL", // Usar la variable de entorno DATABASE_URL
-    dialect: "postgres", // Asegúrate de usar PostgreSQL
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    dialect: 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Esto es común para conexiones SSL
+        rejectUnauthorized: false,
       },
     },
   },
