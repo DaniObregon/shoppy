@@ -31,7 +31,7 @@ dist-ssr
 /client/.env
 
 #firebaseConfig
-/client/src/config/firebaseConfig.js
+#/client/src/config/firebaseConfig.js
 
 #firebaseAdmin
 /server/config/firebaseAdmin.js
