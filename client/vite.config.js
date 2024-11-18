@@ -6,6 +6,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      external: ['src/config/firebaseConfig.js'] // Evita empaquetar el archivo
+    }
+  },
   plugins: [react()],
   server: {
     proxy: {
