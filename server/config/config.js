@@ -1,6 +1,9 @@
 require("dotenv").config({ path: "../.env" });
 
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATABASE_URL:', process.env.DATABASE_URL);  
+console.log(
+  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATABASE_URL:",
+  process.env.DATABASE_URL
+);
 
 module.exports = {
   development: {
@@ -20,13 +23,13 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
   },
   production: {
-    url: 'DATABASE_URL',  // Aquí usas la variable de entorno
-    dialect: 'postgres',
+    url: process.env.DATABASE_URL, // Aquí usas la variable de entorno
+    dialect: "postgres",
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false
-      }
-    }
-  }
+        rejectUnauthorized: false,
+      },
+    },
+  },
 };
