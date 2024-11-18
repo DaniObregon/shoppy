@@ -34,7 +34,7 @@ dist-ssr
 #/client/src/config/firebaseConfig.js
 
 #firebaseAdmin
-/server/config/firebaseAdmin.js
+#/server/config/firebaseAdmin.js
 
 #service-account-file.json
 /server/things/shoppy-153a0-firebase-adminsdk-r3s3l-a96e044339.json
