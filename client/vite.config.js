@@ -9,23 +9,24 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ['src/config/firebaseConfig.js'], // Evita empaquetar el archivo
-    }
+    },
   },
   plugins: [react()],
   server: {
     proxy: {
       "/api": {
-        // Ajustar el target dependiendo del entorno
-        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
+        target: process.env.NODE_ENV === "production"
+          ? "https://shoppy-production-1353.up.railway.app"
+          : `http://localhost:${process.env.SERVER_PORT}`,
         secure: false,
+        changeOrigin: true,
       },
       "/admin-api": {
-        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
+        target: process.env.NODE_ENV === "production"
+          ? "https://shoppy-production-1353.up.railway.app"
+          : `http://localhost:${process.env.SERVER_PORT}`,
         secure: false,
-      },
-      port: process.env.SERVER_PORT,
-      watch: {
-        usePolling: true,
+        changeOrigin: true,
       },
     },
   },
