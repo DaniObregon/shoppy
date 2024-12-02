@@ -16,15 +16,15 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: process.env.NODE_ENV === "production"
-          ? "https://shoppy-production-1353.up.railway.app"
-          : `http://localhost:${process.env.SERVER_PORT}`,
+          ? "https://shoppy-g5bu.onrender.com"
+          : `http://localhost:${process.env.PORT}`,
         secure: false,
         changeOrigin: true,
       },
       "/admin-api": {
         target: process.env.NODE_ENV === "production"
-          ? "https://shoppy-production-1353.up.railway.app"
-          : `http://localhost:${process.env.SERVER_PORT}`,
+          ? "https://shoppy-g5bu.onrender.com"
+          : `http://localhost:${process.env.PORT}`,
         secure: false,
         changeOrigin: true,
       },
