@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 // Configuración de CORS
 const corsOptions = {
   origin: process.env.NODE_ENV === "production"
-    ? "https://tudominio.com" // Cambia a tu dominio en producción
+    ? "https://shoppy-g5bu.onrender.com" // Cambia a tu dominio en producción
     : "http://localhost:3000", // Dominio de desarrollo
   methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
   allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
