@@ -1,11 +1,10 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: require("path").resolve(__dirname, "../../.env") });
+const { Sequelize } = require("sequelize");
 
-console.log(
-  ">>",
-  process.env.DATABASE_URL
-);
+console.log("Variables de entorno cargadas:", process.env);
 
-module.exports = {
+// Configuración de entornos
+const config = {
   development: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -33,3 +32,23 @@ module.exports = {
     },
   },
 };
+
+// Probar la conexión a la base de datos
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || "postgres",
+  }
+);
+
+sequelize
+  .authenticate()
+  .then(() => console.log("Conexión exitosa con la base de datos"))
+  .catch((error) =>
+    console.error("No se pudo conectar a la base de datos:", error)
+  );
+
+module.exports = config;

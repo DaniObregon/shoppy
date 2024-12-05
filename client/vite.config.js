@@ -16,14 +16,14 @@ export default defineConfig({
     proxy: {
       "/api": {
         // Ajustar el target dependiendo del entorno
-        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy-g5bu.onrender.com' : `http://localhost:${process.env.PORT}`,
         secure: false,
       },
       "/admin-api": {
-        target: process.env.NODE_ENV === 'production' ? 'https://shoppy.railway.app' : `http://localhost:${process.env.SERVER_PORT}`,
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy-g5bu.onrender.com' : `http://localhost:${process.env.PORT}`,
         secure: false,
       },
-      port: process.env.SERVER_PORT,
+      port: process.env.PORT,
       watch: {
         usePolling: true,
       },
