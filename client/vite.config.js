@@ -15,18 +15,18 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: process.env.NODE_ENV === "production"
-          ? "https://shoppy-g5bu.onrender.com"
-          : `http://localhost:${process.env.PORT}`,
+        // Ajustar el target dependiendo del entorno
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy-g5bu.onrender.com' : `http://localhost:${process.env.PORT}`,
         secure: false,
         changeOrigin: true,
       },
       "/admin-api": {
-        target: process.env.NODE_ENV === "production"
-          ? "https://shoppy-g5bu.onrender.com"
-          : `http://localhost:${process.env.PORT}`,
+        target: process.env.NODE_ENV === 'production' ? 'https://shoppy-g5bu.onrender.com' : `http://localhost:${process.env.PORT}`,
         secure: false,
-        changeOrigin: true,
+      },
+      port: process.env.PORT,
+      watch: {
+        usePolling: true,
       },
     },
   },
