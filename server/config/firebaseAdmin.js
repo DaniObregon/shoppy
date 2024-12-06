@@ -5,7 +5,7 @@ var serviceAccount;
 // Verifica si estás en un entorno de producción o desarrollo
 if (process.env.FIREBASE_SERVICE_ACCOUNT) {
   // Si la variable de entorno existe, la parseamos desde una cadena JSON
-  console.log("FIREBASE_SERVICE_ACCOUNT:::" + JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT));
+  console.log("FIREBASE_SERVICE_ACCOUNT:::", JSON.stringify(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT), null, 2));
   serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 } else {
