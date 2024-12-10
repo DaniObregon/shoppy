@@ -8,19 +8,11 @@ const PORT = process.env.PORT || 5000;
 
 // Configuración de CORS
 const corsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      "http://localhost:3000",
-      "https://shoppy-g5bu.onrender.com"
-    ];
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("No permitido por CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: process.env.NODE_ENV === "production"
+    ? "https://doshoppy.netlify.app" // Cambia a tu dominio en producción
+    : "http://localhost:3000", // Dominio de desarrollo
+  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
 };
 
 
