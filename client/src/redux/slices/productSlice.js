@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import api from "../../config/axiosConfig"
 
 // Acción para obtener los detalles del producto desde la API
 export const fetchProductById = createAsyncThunk(
   "product/fetchProductById",
   async (productId) => {
-    const response = await axios.get(`/api/products/${productId}`);
+    const response = await api.get(`/api/products/${productId}`);
     return response.data;
   }
 );
