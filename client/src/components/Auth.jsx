@@ -1,4 +1,5 @@
-import axios from "axios";
+//import axios from "axios";
+import api from "../config/axiosConfig"
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { SignUpButton } from "./SignUpButton";
@@ -30,7 +31,7 @@ export const Auth = ({ onAuthSuccess }) => {
 
       console.log("Datos que se envían al backend:", userData);
 
-      const response = await axios.post(
+      const response = await api.post(
         "/api/auth/signup",
         JSON.stringify(userData),
         {

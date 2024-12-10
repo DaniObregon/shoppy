@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: process.env.NODE_ENV === "production"
     ? "https://doshoppy.netlify.app" // Cambia a tu dominio en producción
-    : "http://localhost:3000", // Dominio de desarrollo
+    : "http://localhost:5173", // Dominio de desarrollo
   methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
   allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
 };
