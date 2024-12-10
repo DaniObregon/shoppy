@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from "../config/axiosConfig"
 import { Grid } from '@chakra-ui/react';
 import { Card } from './Card';
 
@@ -9,7 +9,7 @@ export const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('/api/products');
+        const response = await api.get('/api/products');
         console.log(response.data);
         if (Array.isArray(response.data)) {
           setProducts(response.data);

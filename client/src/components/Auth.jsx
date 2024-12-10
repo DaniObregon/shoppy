@@ -1,4 +1,3 @@
-//import axios from "axios";
 import api from "../config/axiosConfig"
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
