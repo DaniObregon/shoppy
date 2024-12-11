@@ -1,5 +1,3 @@
-require("dotenv").config({ path: "./server/.env" });
-
 module.exports = {
   testEnvironment: "jsdom",
   moduleFileExtensions: ["js", "jsx", "json", "node"],

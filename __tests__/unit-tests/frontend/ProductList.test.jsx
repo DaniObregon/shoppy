@@ -5,19 +5,24 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import configureStore from "redux-mock-store";
-import axios from "axios";
+import api from "../../../client/src/config/axiosConfig"; // Importamos la instancia específica de api
 import { ProductList } from "../../../client/src/components/ProductList";
 import ResizeObserver from "resize-observer-polyfill";
 
-// ----- Mock de axios para simular las llamadas a la API -----
-jest.mock("axios");
+// Mockear módulos relacionados con Firebase
+jest.mock("../../../client/src/config/firebaseConfig", () => ({
+  auth: require("../../../__mocks__/firebaseConfig").auth,
+}));
+
+// ----- Mock de la instancia específica de api -----
+jest.mock("../../../client/src/config/axiosConfig", () => ({
+  get: jest.fn(), // Mockeamos el método get de api
+}));
 
 const mockStore = configureStore([]);
-const store = mockStore({});
+let store;
 
 describe("ProductList component", () => {
-  let store;
-
   const initialState = {
     userInfo: { role_id: null },
   };
@@ -60,7 +65,7 @@ describe("ProductList component", () => {
 
   // ----- 1 - Prueba de Renderización con Productos Mock -----
   test("should render products received from API", async () => {
-    axios.get.mockResolvedValue({ data: mockProducts });
+    api.get.mockResolvedValue({ data: mockProducts }); // Mockeamos api.get
     store = mockStore(userRole1State); // Simular rol 1
     render(
       <Provider store={store}>
@@ -84,7 +89,7 @@ describe("ProductList component", () => {
 
   // ----- 2 - Prueba de Manejo de Error en la Llamada a la API -----
   test("should handle API error gracefully", async () => {
-    axios.get.mockRejectedValue(new Error("API Error"));
+    api.get.mockRejectedValue(new Error("API Error")); // Mockeamos un error en la llamada a api.get
     store = mockStore(userRole1State); // Simular rol 1
     render(
       <Provider store={store}>
@@ -105,8 +110,7 @@ describe("ProductList component", () => {
 
   // ----- 3 - Snapshot Testing -----
   test("should match snapshot", async () => {
-    axios.get.mockResolvedValue({ data: mockProducts });
-
+    api.get.mockResolvedValue({ data: mockProducts }); // Mockeamos api.get
     const { asFragment } = render(
       <Provider store={store}>
         <BrowserRouter>
