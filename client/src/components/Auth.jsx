@@ -28,7 +28,7 @@ export const Auth = ({ onAuthSuccess }) => {
         role_id: 1, // Rol por defecto (client)
       };
 
-      console.log("Datos que se envían al backend:", userData);
+      //console.log("Datos que se envían al backend:", userData);
 
       const response = await api.post(
         "/api/auth/signup",
@@ -41,12 +41,12 @@ export const Auth = ({ onAuthSuccess }) => {
         }
       );
 
-      console.log("Respuesta del backend:", response.data);
+      //console.log("Respuesta del backend:", response.data);
 
       // Accede a las propiedades del objeto `user` desde la respuesta del backend
       const { name, email, role } = response.data.user;
 
-      console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
+      //console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
 
       // Actualizar el estado global de Redux con los datos del usuario
       dispatch(

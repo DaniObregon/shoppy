@@ -8,7 +8,7 @@ router.post("/signup", async (req, res) => {
   const { name, email } = req.body; // Ahora el body solo tiene name y email
   const token = req.headers.authorization?.split(" ")[1]; // Obtener el token del header Authorization
 
-  console.log("1 - ORIGINAL TOKEN JWT: " + token);
+  //console.log("1 - ORIGINAL TOKEN JWT: " + token);
   if (!token) {
     return res.status(401).json({ message: "No se ha proporcionado un token" });
   }
@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
     // Verifica el token con Firebase Admin SDK
     const decodedToken = await admin.auth().verifyIdToken(token);
 
-    console.log("2 - DECODED TOKEN JWT: " + JSON.stringify(decodedToken, null, 2));
+    //console.log("2 - DECODED TOKEN JWT: " + JSON.stringify(decodedToken, null, 2));
 
     if (decodedToken) {
       // Verificar si el usuario ya existe en la base de datos
