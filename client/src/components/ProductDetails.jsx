@@ -156,7 +156,7 @@ export const ProductDetails = () => {
                 mt="10"
                 padding="6"
                 ml="2"
-                borderTop="1px solid" // Añadir una línea de separación
+                borderTop="1px solid" // Añade una línea de separación
                 borderColor={borderColor}
               >
                 <Heading

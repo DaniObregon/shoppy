@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Badge, Image, HStack, Text } from "@chakra-ui/react";
-import entregaIcon from "../assets/envioIcon.png"; // Asegúrate de usar la ruta correcta
+import entregaIcon from "../assets/envioIcon.png";
 
 export const TooltipBadge = ({ text }) => {
   return (

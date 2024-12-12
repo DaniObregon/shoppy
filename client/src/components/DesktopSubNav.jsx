@@ -1,4 +1,3 @@
-// /home/danio/projects/shoppy/client/src/components/DesktopSubNav.jsx
 import React from "react";
 import {
   Box,

@@ -14,7 +14,7 @@ export const Auth = ({ onAuthSuccess }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Obtener el estado del usuario desde Redux (obtiene los datos)
+  // Obtiene el estado del usuario desde Redux (obtiene los datos)
   const userInfo = useSelector((state) => state.userInfo);
 
   const signUpWithGoogle = async () => {
@@ -61,7 +61,7 @@ export const Auth = ({ onAuthSuccess }) => {
       if (onAuthSuccess) {
         onAuthSuccess(user); // Llamar a la función si está definida
       }
-      navigate("/"); // Redirige al home o a la ruta que prefieras después de autenticarse
+      navigate("/"); // Redirige al home después de autenticarse (o cambiar ruta)
     } catch (error) {
       console.error("Error durante el inicio de sesión:", error);
     }

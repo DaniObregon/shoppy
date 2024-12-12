@@ -3,7 +3,7 @@ import { chakra } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 export const AddToCartButton = ({ id }) => {
-  // Obtener el role_id desde el estado de Redux
+  // Obtiene el role_id desde el estado de Redux
   const role_id = useSelector((state) => state.userInfo.role_id);
 
   // Evita la propagación del clic hacia el contenedor de la tarjeta
