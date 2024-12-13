@@ -55,11 +55,11 @@ export const ProductDetails = () => {
     <Box padding="4" maxW="full" mx="auto">
       {product && (
         <>
-          {/* Cambiar `templateColumns` para ser responsive */}
+          {/* Grid Principal */}
           <Grid
             templateColumns={{
-              base: "1fr", // Vista en dispositivos móviles
-              md: "70% 30%", // Vista en dispositivos medianos y grandes
+              base: "1fr", // En móviles, colapsa a una sola columna
+              md: "minmax(400px, 70%) minmax(300px, 30%)", // Define un ancho mínimo para las columnas
             }}
             gap="4"
             mt="4"
@@ -75,12 +75,14 @@ export const ProductDetails = () => {
               justifyContent="center"
               alignItems="center"
               padding="4"
+              width="100%" // Asegura que el contenedor ocupe el 100% del espacio disponible
             >
               <Image
                 src={product.imgUrl}
                 alt={product.model}
                 borderRadius="md"
-                width="80%"
+                width="100%" // Asegura que la imagen ocupe todo el contenedor
+                height="auto" // Mantiene la proporción de la imagen
               />
             </GridItem>
             {/* Zona de compra */}
@@ -148,6 +150,9 @@ export const ProductDetails = () => {
                       variant="link"
                       color="teal.500"
                       width="100%"
+                      textAlign="center" // Ajusta el texto al inicio
+                      whiteSpace="normal" // Permite que el texto se divida en varias líneas
+                      wordBreak="break-word" // Rompe palabras largas si es necesario
                     >
                       ¡Te lo enviamos gratis con la primer cuota!
                     </Button>
@@ -157,7 +162,9 @@ export const ProductDetails = () => {
               </VStack>
             </GridItem>
             {/* Características principales */}
-            <GridItem colSpan={{ base: 1, md: 2 }}> {/* Ocupa todo el ancho en móviles */}
+            <GridItem colSpan={{ base: 1, md: 2 }}>
+              {" "}
+              {/* Ocupa todo el ancho en móviles */}
               <Box
                 mt="10"
                 padding="6"
