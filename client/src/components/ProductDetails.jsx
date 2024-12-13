@@ -55,7 +55,15 @@ export const ProductDetails = () => {
     <Box padding="4" maxW="full" mx="auto">
       {product && (
         <>
-          <Grid templateColumns="70% 30%" gap="2" mt="4" minWidth="1000px">
+          {/* Cambiar `templateColumns` para ser responsive */}
+          <Grid
+            templateColumns={{
+              base: "1fr", // Vista en dispositivos móviles
+              md: "70% 30%", // Vista en dispositivos medianos y grandes
+            }}
+            gap="4"
+            mt="4"
+          >
             {/* Imagen */}
             <GridItem
               ml="2"
@@ -67,7 +75,6 @@ export const ProductDetails = () => {
               justifyContent="center"
               alignItems="center"
               padding="4"
-              minWidth="600px"
             >
               <Image
                 src={product.imgUrl}
@@ -83,8 +90,7 @@ export const ProductDetails = () => {
               borderRadius="md"
               boxShadow="sm"
               padding="4"
-              ml="8"
-              minWidth="300px"
+              ml={{ base: "0", md: "8" }} // Sin margen lateral en dispositivos móviles
             >
               <VStack align="start" spacing="4">
                 <Heading
@@ -151,12 +157,12 @@ export const ProductDetails = () => {
               </VStack>
             </GridItem>
             {/* Características principales */}
-            <GridItem>
+            <GridItem colSpan={{ base: 1, md: 2 }}> {/* Ocupa todo el ancho en móviles */}
               <Box
                 mt="10"
                 padding="6"
                 ml="2"
-                borderTop="1px solid" // Añade una línea de separación
+                borderTop="1px solid"
                 borderColor={borderColor}
               >
                 <Heading
@@ -170,7 +176,6 @@ export const ProductDetails = () => {
                 >
                   Características Principales
                 </Heading>
-                {/* Tabla de especificaciones */}
                 <Box
                   border="1px solid"
                   borderColor={tableBorderColor}
@@ -203,9 +208,7 @@ export const ProductDetails = () => {
                 </Box>
               </Box>
             </GridItem>
-            {/* GridItem Vacio */}
-            <GridItem></GridItem>
-            {/* Zona de Descripcion del producto */}
+            {/* Zona de descripción */}
             <GridItem>
               <Box mt="10" padding="6" ml="2">
                 <Heading
@@ -217,7 +220,7 @@ export const ProductDetails = () => {
                   ml="5"
                   mt="5"
                 >
-                  Descripcion
+                  Descripción
                 </Heading>
                 <Box overflow="hidden" mt="4">
                   <Text fontSize="xl" color="gray.400" fontWeight="bold">
