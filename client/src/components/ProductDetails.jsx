@@ -75,12 +75,14 @@ export const ProductDetails = () => {
               justifyContent="center"
               alignItems="center"
               padding="4"
+              width="100%" // Asegura que el contenedor ocupe el 100% del espacio disponible
             >
               <Image
                 src={product.imgUrl}
                 alt={product.model}
                 borderRadius="md"
-                width="80%"
+                width="100%" // Asegura que la imagen ocupe todo el contenedor
+                height="auto" // Mantiene la proporción de la imagen
               />
             </GridItem>
             {/* Zona de compra */}
