@@ -10,11 +10,11 @@ export const Carousel = () => {
 
   const slidesCount = visibleSlides.length;
   const carouselStyle = {
-    transition: "all 1.1s",
+    transition: "all 1.5s",
     ml: `-${currentSlide * 100}%`,
   };
 
-  const SLIDES_INTERVAL_TIME = 1500;
+  const SLIDES_INTERVAL_TIME = 4000;
   const ANIMATION_DIRECTION = "right";
 
   useEffect(() => {

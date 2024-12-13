@@ -30,11 +30,7 @@ dist-ssr
 .env
 /client/.env
 
-#firebaseConfig
-#/client/src/config/firebaseConfig.js
-
-#firebaseAdmin
-#/server/config/firebaseAdmin.js
-
 #service-account-file.json
-/server/things/shoppy-153a0-firebase-adminsdk-r3s3l-a96e044339.json
+#/server/things/shoppy-153a0-firebase-adminsdk-r3s3l-a96e044339.json
+#/server/things/shoppy-firebase-admin-secret.json
+/server/secrets/shoppy-firebase-admin-secret.json

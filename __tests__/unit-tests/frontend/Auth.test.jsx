@@ -7,6 +7,11 @@ import configureStore from "redux-mock-store";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
+// Mockear módulos relacionados con Firebase
+jest.mock("../../../client/src/config/firebaseConfig", () => ({
+  auth: require("../../../__mocks__/firebaseConfig").auth,
+}));
+
 // Crear un mock del store de Redux
 const mockStore = configureStore([]);
 const initialState = {

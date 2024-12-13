@@ -9,6 +9,11 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+// Mockear módulos relacionados con Firebase
+jest.mock("../../../client/src/config/firebaseConfig", () => ({
+  auth: require("../../../__mocks__/firebaseConfig").auth,
+}));
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: jest.fn(),
