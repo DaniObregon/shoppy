@@ -23,7 +23,9 @@ export const Header = () => {
       <Text fontSize="sm" mr="4">
         Showroom Av. J.B. Justo 0000
       </Text>
-      <Text fontSize="sm">Lunes a Viernes de 9 a 17.30hs.</Text>
+      <Text fontSize="sm" mr="4">
+        Lunes a Viernes de 9 a 17.30hs.
+      </Text>
     </Flex>
   );
 };

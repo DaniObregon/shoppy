@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignOutButton component should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="chakra-button css-y0x22u"
+    type="button"
+  >
+    Salir
+  </button>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

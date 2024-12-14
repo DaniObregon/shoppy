@@ -25,11 +25,11 @@ router.post("/google/callback", async (req, res) => {
     res
       .status(200)
       .send({ name: user.name, email: user.email, role_id: user.role_id });
-    console.log("Datos enviados al frontend:", {
-      name: user.name,
-      email: user.email,
-      role_id: user.role_id,
-    });
+    // console.log("Datos enviados al frontend:", {
+    //   name: user.name,
+    //   email: user.email,
+    //   role_id: user.role_id,
+    // });
   } catch (error) {
     console.error("Error during user creation or verification: ", error);
     res.status(500).send({ error: "Error creating or verifying user" });

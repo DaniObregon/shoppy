@@ -2,13 +2,13 @@ import React from "react";
 import { chakra } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
-
-export const AddToCartButton = ({ id, onClick }) => {
-  // Obtener el role_id desde el estado de Redux
+export const AddToCartButton = ({ id }) => {
+  // Obtiene el role_id desde el estado de Redux
   const role_id = useSelector((state) => state.userInfo.role_id);
 
+  // Evita la propagación del clic hacia el contenedor de la tarjeta
   const handleAddToCart = (event) => {
-    event.stopPropagation(); // Evita la propagación del clic hacia el contenedor de la tarjeta
+    event.stopPropagation();
 
     // Lógica para agregar el producto al carrito
     if (role_id === 2) {

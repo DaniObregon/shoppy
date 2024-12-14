@@ -75,6 +75,12 @@ export const Card = ({ id, brand, model, description, price, imgUrl }) => {
           color="gray.600"
           _dark={{ color: "gray.300" }}
           fontSize="sm"
+          sx={{
+            overflow: "hidden",
+            display: "-webkit-box",
+            WebkitLineClamp: "3",
+            WebkitBoxOrient: "vertical",
+          }}
         >
           {description}
         </chakra.p>

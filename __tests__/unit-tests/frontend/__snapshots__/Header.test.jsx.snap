@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="css-qnkecb"
+  >
+    <p
+      class="chakra-text css-1q1nto6"
+    >
+      Whatsapp 11 8888-8888
+    </p>
+    <p
+      class="chakra-text css-2c2vhg"
+    >
+      Showroom Av. J.B. Justo 0000
+    </p>
+    <p
+      class="chakra-text css-2c2vhg"
+    >
+      Lunes a Viernes de 9 a 17.30hs.
+    </p>
+  </header>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

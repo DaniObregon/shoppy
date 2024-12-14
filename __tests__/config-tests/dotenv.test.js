@@ -19,7 +19,8 @@ describe("Environment Configuration", () => {
   });
 
   test("should have DB_USER defined in the environment", () => {
-    expect(process.env.DB_USER).toBe("postgres");
+    // expect(process.env.DB_USER).toBe("postgres");
+    expect(process.env.DB_USER).toBe("dobregon_user");
   });
 
   test("shouldn't be undefined", () => {

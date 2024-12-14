@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { slides } from "../data/carouselSlides";
 
 export const Carousel = () => {
-  const slides = [
-    {
-      img: "https://www.brooksrunning.com/on/demandware.static/-/Library-Sites-BrooksRunningShared/default/dw26f51a29/cms-content/Project/ADT/Brooks-Running/EMEA/Blog/2023/April/best-running-shoes-for-knee-pain/S23_RHB_knee_Hero_XL.jpg",
-    },
-    {
-      img: "https://hips.hearstapps.com/hmg-prod/images/run-reebok-running-shoes-64e3beadbe692.jpg",
-    },
-    {
-      img: "https://brand.assets.adidas.com/capi/enUS/Images/1839569-seo-how-to-break-in-running-shoes-body-image-2_221-681798.jpg",
-    },
-    {
-      img: "https://portcrossfit.com/wp-content/uploads/2023/08/run-nike-running-shoes-646cdd1a19c41-1200x600.jpg",
-    },
-  ];
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [visibleSlides, setVisibleSlides] = useState(slides);
+  const [isPaused, setIsPaused] = useState(false); // Estado para manejar si la transición está pausada
+  const [isHovered, setIsHovered] = useState(false); // Estado para manejar si el mouse está sobre el carrusel
 
-  const slidesCount = slides.length;
-
+  const slidesCount = visibleSlides.length;
   const carouselStyle = {
-    transition: "all 1.1s",
+    transition: "all 1.5s",
     ml: `-${currentSlide * 100}%`,
   };
 
-  const SLIDES_INTERVAL_TIME = 3000;
+  const SLIDES_INTERVAL_TIME = 4000;
   const ANIMATION_DIRECTION = "right";
 
   useEffect(() => {
@@ -38,24 +27,60 @@ export const Carousel = () => {
     };
 
     const automatedSlide = setInterval(() => {
-      ANIMATION_DIRECTION.toLowerCase() === "left" ? prevSlide() : nextSlide();
+      if (!isPaused) {
+        ANIMATION_DIRECTION.toLowerCase() === "left"
+          ? prevSlide()
+          : nextSlide();
+      }
     }, SLIDES_INTERVAL_TIME);
+
     return () => clearInterval(automatedSlide);
-  }, [slidesCount]);
+  }, [slidesCount, isPaused]);
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+    setIsHovered(false);
+  };
+
+  // Función para manejar el error de carga de imágenes y eliminar el slide
+  const handleImageError = (index) => {
+    setVisibleSlides((prevSlides) =>
+      prevSlides.filter((_, slideIndex) => slideIndex !== index)
+    );
+  };
 
   return (
     <Flex
+      id="carousel"
+      role="region"
+      aria-label="carousel"
       w="full"
       bg="#edf3f8"
       _dark={{ bg: "#3e3e3e" }}
       p={0}
       alignItems="center"
       justifyContent="center"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Flex w="full" overflow="hidden">
         <Flex pos="relative" h="500px" w="full" {...carouselStyle}>
-          {slides.map((slide, sid) => (
-            <Box key={`slide-${sid}`} flex="none" boxSize="full" shadow="md">
+          {visibleSlides.map((slide, index) => (
+            <Box
+              key={`slide-${index}`}
+              flex="none"
+              boxSize="full"
+              shadow="md"
+              transition="transform 0.3s ease"
+              style={{
+                transform: isHovered ? "translateY(-5px)" : "translateY(0px)",
+              }}
+            >
               <Text
                 color="white"
                 fontSize="xs"
@@ -64,13 +89,18 @@ export const Carousel = () => {
                 top="0"
                 whiteSpace="nowrap"
               >
-                {sid + 1} / {slidesCount}
+                {index + 1} / {slidesCount}
               </Text>
               <Image
                 src={slide.img}
-                alt="carousel image"
+                alt={`Slide ${index + 1}`}
                 boxSize="full"
-                objectFit="cover" // Ajusta la imagen para cubrir el contenedor manteniendo su relación de aspecto
+                objectFit="cover"
+                style={{
+                  opacity: isHovered ? "0.8" : "1",
+                  transition: "opacity 0.3s ease",
+                }}
+                onError={() => handleImageError(index)} // Maneja el error de carga de imagen eliminando el slide
               />
             </Box>
           ))}

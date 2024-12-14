@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-177jhv5"
+  >
+    <button
+      class="chakra-button css-1e2mvam"
+      type="button"
+    >
+      Ingresar
+    </button>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

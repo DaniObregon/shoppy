@@ -11,18 +11,20 @@ const config = require(path.join(__dirname, "../config/config.js"))[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], {
-    ...config,
-    dialect: "postgres",
-  });
+
+// Usar config.url si está definido (producción)
+if (config.url) {
+  sequelize = new Sequelize(config.url, config);
 } else {
+  // Configuración tradicional para desarrollo y test
   sequelize = new Sequelize(config.database, config.username, config.password, {
-    config,
-    dialect: "postgres",
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
   });
 }
 
+// Leer modelos y registrarlos
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (

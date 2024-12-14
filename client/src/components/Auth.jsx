@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../config/axiosConfig"
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { SignUpButton } from "./SignUpButton";
@@ -14,7 +14,7 @@ export const Auth = ({ onAuthSuccess }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Obtener el estado del usuario desde Redux (obtiene los datos)
+  // Obtiene el estado del usuario desde Redux (obtiene los datos)
   const userInfo = useSelector((state) => state.userInfo);
 
   const signUpWithGoogle = async () => {
@@ -28,9 +28,9 @@ export const Auth = ({ onAuthSuccess }) => {
         role_id: 1, // Rol por defecto (client)
       };
 
-      console.log("Datos que se envían al backend:", userData);
+      //console.log("Datos que se envían al backend:", userData);
 
-      const response = await axios.post(
+      const response = await api.post(
         "/api/auth/signup",
         JSON.stringify(userData),
         {
@@ -41,12 +41,12 @@ export const Auth = ({ onAuthSuccess }) => {
         }
       );
 
-      console.log("Respuesta del backend:", response.data);
+      //console.log("Respuesta del backend:", response.data);
 
       // Accede a las propiedades del objeto `user` desde la respuesta del backend
       const { name, email, role } = response.data.user;
 
-      console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
+      //console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
 
       // Actualizar el estado global de Redux con los datos del usuario
       dispatch(
@@ -61,7 +61,7 @@ export const Auth = ({ onAuthSuccess }) => {
       if (onAuthSuccess) {
         onAuthSuccess(user); // Llamar a la función si está definida
       }
-      navigate("/"); // Redirige al home o a la ruta que prefieras después de autenticarse
+      navigate("/"); // Redirige al home después de autenticarse (o cambiar ruta)
     } catch (error) {
       console.error("Error durante el inicio de sesión:", error);
     }
