@@ -2,48 +2,54 @@ export const getVisibleNavItems = (role_id) => {
     const navConfig = {
       client: [
         {
-          label: "Capilares",
-          path: "/capilares",
+          label: "Categorias",
+          path: "/categorias",
           children: [
             {
-              label: "Coloración",
-              path: "/coloracion",
+              label: "Tecnologia",
+              path: "/tecnologia",
             },
             {
-              label: "Styling",
-              path: "/styling",
+              label: "Electro",
+              path: "/electro",
             },
             {
-              label: "HairCare",
-              path: "/haircare",
+              label: "Herramientas",
+              path: "/herramientas",
             },
             {
-              label: "Forma",
-              path: "/forma",
+              label: "Juguetes",
+              path: "/juguetes",
+            },
+            {
+              label: "Jardin",
+              path: "/jardin",
+            },
+            {
+              label: "Zapatillas",
+              path: "/zapatillas",
+            },
+            {
+              label: "OFERTAS!",
+              path: "/ofertas",
             },
           ],
         },
         {
-          label: "Manos y Uñas",
-          path: "/manos-y-unas",
-          children: [
-            {
-              label: "Prueba children",
-              path: "/prueba-children",
-            },
-          ],
+          label: "Todos los productos",
+          path: "/todos-los-productos",
         },
         {
-          label: "Maquillaje",
-          path: "/maquillaje",
+          label: "¿Donde estamos?",
+          path: "/donde-estamos",
         },
         {
-          label: "Equipamientos",
-          path: "/equipamientos",
+          label: "Quienes somos...",
+          path: "/quienes-somos",
         },
         {
-          label: "Estética y Spa",
-          path: "/estetica-y-spa",
+          label: "Contactanos",
+          path: "/contactanos",
         },
       ],
       admin: [
