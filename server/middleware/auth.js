@@ -6,7 +6,7 @@ const authenticateUser = async (req, res, next) => {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res
       .status(401)
-      .json({ message: "Token no proporcionado o formato incorrecto" });
+      .json({ message: "Usuario no autorizado: token no proporcionado o formato incorrecto." });
   }
 
   const token = authHeader.split(" ")[1];
