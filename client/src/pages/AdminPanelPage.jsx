@@ -1,13 +1,14 @@
 import React from "react";
-import { Button } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { AdminPanel } from "../components/AdminPanel";
+import { Header } from "../components/Header";
+import { Navbar } from "../components/Navbar";
 
 export const AdminPanelPage = () => {
-  const navigate = useNavigate();
-
   return (
-    <div>
-      <Button onClick={() => navigate("/")}>Regresar a MainPage</Button>
-    </div>
+    <>
+      <Header />
+      <Navbar />
+      <AdminPanel />
+    </>
   );
 };
