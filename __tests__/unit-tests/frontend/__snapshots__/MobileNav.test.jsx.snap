@@ -14,7 +14,7 @@ exports[`MobileNav component should match snapshot 1`] = `
         <a
           class="chakra-link css-xjxbhl"
         >
-          Capilares
+          Categorias
         </a>
         <svg
           aria-expanded="false"
@@ -38,27 +38,45 @@ exports[`MobileNav component should match snapshot 1`] = `
         >
           <a
             class="chakra-link css-41nuu3"
-            href="/coloracion"
+            href="/tecnologia"
           >
-            Coloración
+            Tecnologia
           </a>
           <a
             class="chakra-link css-41nuu3"
-            href="/styling"
+            href="/electro"
           >
-            Styling
+            Electro
           </a>
           <a
             class="chakra-link css-41nuu3"
-            href="/haircare"
+            href="/herramientas"
           >
-            HairCare
+            Herramientas
           </a>
           <a
             class="chakra-link css-41nuu3"
-            href="/forma"
+            href="/juguetes"
           >
-            Forma
+            Juguetes
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/jardin"
+          >
+            Jardin
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/zapatillas"
+          >
+            Zapatillas
+          </a>
+          <a
+            class="chakra-link css-41nuu3"
+            href="/ofertas"
+          >
+            OFERTAS!
           </a>
         </div>
       </div>
@@ -72,47 +90,7 @@ exports[`MobileNav component should match snapshot 1`] = `
         <a
           class="chakra-link css-xjxbhl"
         >
-          Manos y Uñas
-        </a>
-        <svg
-          aria-expanded="false"
-          class="chakra-icon chakra-icon css-btfxl7"
-          focusable="false"
-          role="img"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      <div
-        class="chakra-collapse"
-        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
-      >
-        <div
-          class="chakra-stack css-thv72w"
-        >
-          <a
-            class="chakra-link css-41nuu3"
-            href="/prueba-children"
-          >
-            Prueba children
-          </a>
-        </div>
-      </div>
-    </div>
-    <div
-      class="chakra-stack css-1811skr"
-    >
-      <div
-        class="css-lxmzlz"
-      >
-        <a
-          class="chakra-link css-xjxbhl"
-        >
-          Maquillaje
+          Todos los productos
         </a>
       </div>
       <div
@@ -133,7 +111,7 @@ exports[`MobileNav component should match snapshot 1`] = `
         <a
           class="chakra-link css-xjxbhl"
         >
-          Equipamientos
+          ¿Donde estamos?
         </a>
       </div>
       <div
@@ -154,7 +132,28 @@ exports[`MobileNav component should match snapshot 1`] = `
         <a
           class="chakra-link css-xjxbhl"
         >
-          Estética y Spa
+          Quienes somos...
+        </a>
+      </div>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-thv72w"
+        />
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-1811skr"
+    >
+      <div
+        class="css-lxmzlz"
+      >
+        <a
+          class="chakra-link css-xjxbhl"
+        >
+          Contactanos
         </a>
       </div>
       <div
