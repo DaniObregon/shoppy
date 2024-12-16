@@ -26,6 +26,7 @@ export const Auth = ({ onAuthSuccess }) => {
         name: user.displayName,
         email: user.email,
         role_id: 1, // Rol por defecto (client)
+        token: token, // Guardamos el token aquí
       };
 
       //console.log("Datos que se envían al backend:", userData);
@@ -48,12 +49,13 @@ export const Auth = ({ onAuthSuccess }) => {
 
       //console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
 
-      // Actualizar el estado global de Redux con los datos del usuario
+      // Actualizar el estado global de Redux con los datos del usuario incluyendo el token
       dispatch(
         login({
           name: name,
           email: email,
           role_id: role,
+          token: token,
         })
       );
 
