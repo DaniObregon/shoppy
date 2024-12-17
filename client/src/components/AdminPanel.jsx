@@ -3,7 +3,12 @@ import {
   Button,
   Box,
   Text,
-  Grid,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
   useDisclosure,
   Modal,
   ModalOverlay,
@@ -34,13 +39,13 @@ export const AdminPanel = () => {
     description: "",
     price: "",
     imgUrl: "",
+    stock: "",
   });
-  const [shouldReload, setShouldReload] = useState(false); // Nuevo estado para controlar la recarga
+  const [shouldReload, setShouldReload] = useState(false);
 
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // Obtener productos solo cuando sea necesario
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -50,10 +55,10 @@ export const AdminPanel = () => {
         console.error("Error fetching products:", error);
       }
     };
-  
+
     fetchProducts();
-  }, []); // Ejecutarse solo al montar el componente
-  
+  }, []);
+
   useEffect(() => {
     if (shouldReload) {
       const fetchProducts = async () => {
@@ -65,10 +70,9 @@ export const AdminPanel = () => {
         }
       };
       fetchProducts();
-      setShouldReload(false); // Resetear la bandera para evitar recargas innecesarias
+      setShouldReload(false);
     }
-  }, [shouldReload]); // Solo cuando 'shouldReload' sea verdadero
-  
+  }, [shouldReload]);
 
   const handleDeleteProduct = async (id) => {
     try {
@@ -79,7 +83,7 @@ export const AdminPanel = () => {
         status: "success",
         duration: 3000,
       });
-      setShouldReload(true); // Marcar para recargar productos después de eliminar
+      setShouldReload(true);
     } catch (error) {
       console.error("Error deleting product:", error);
       toast({
@@ -110,22 +114,18 @@ export const AdminPanel = () => {
 
     const productData = {
       ...formData,
-      stock: formData.stock || 0, // Asignar 0 si stock no está definido
+      stock: formData.stock || 0,
     };
 
     try {
       let response;
       if (formData.id) {
-        // Actualizar producto
         response = await api.put(
           `/admin-api/products/${formData.id}`,
           productData
         );
-        console.log("Producto actualizado", response.data);
       } else {
-        // Agregar producto
         response = await api.post("/admin-api/products", productData);
-        console.log("Producto agregado", response.data);
       }
       toast({
         title: "Producto procesado",
@@ -142,8 +142,8 @@ export const AdminPanel = () => {
         name: "",
         stock: "",
       });
-      onClose(); // Cerrar modal después de la acción
-      setShouldReload(true); // Marcar para recargar productos después de agregar/actualizar
+      onClose();
+      setShouldReload(true);
     } catch (error) {
       console.error("Error adding/updating product:", error);
       toast({
@@ -165,34 +165,62 @@ export const AdminPanel = () => {
         Agregar Producto
       </Button>
 
-      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
-        {products.map((product) => (
-          <Box key={product.id} p={4} borderWidth={1} borderRadius="md">
-            <Text fontSize="xl" fontWeight="bold">
-              {product.brand} {product.model}
-            </Text>
-            <Text>{product.description}</Text>
-            <Text color="green.500">Precio: ${product.price}</Text>
-            <Button
-              colorScheme="red"
-              onClick={() => handleDeleteProduct(product.id)}
-              mt={2}
-            >
-              Eliminar
-            </Button>
-            <Button
-              colorScheme="yellow"
-              onClick={() => {
-                setFormData(product);
-                onOpen();
-              }}
-              mt={2}
-            >
-              Modificar
-            </Button>
-          </Box>
-        ))}
-      </Grid>
+      <Table variant="striped" colorScheme="gray">
+        <Thead>
+          <Tr>
+            <Th>ID</Th>
+            <Th>Nombre</Th>
+            <Th>Marca</Th>
+            <Th>Modelo</Th>
+            <Th>Descripción</Th>
+            <Th>Precio</Th>
+            <Th>Stock</Th>
+            <Th>Acciones</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {products.map((product) => (
+            <Tr key={product.id}>
+              <Td>{product.id}</Td>
+              <Td>{product.name}</Td>
+              <Td>{product.brand}</Td>
+              <Td>{product.model}</Td>
+              <Td
+                maxWidth={{ base: "100px", md: "200px", lg: "300px" }}
+                whiteSpace="normal"
+                overflow="hidden"
+                wordBreak="break-word"
+              >
+                {product.description}
+              </Td>
+              <Td>${product.price}</Td>
+              <Td>{product.stock}</Td>
+              <Td>
+                <Box display="flex" gap={2}>
+                  <Button
+                    colorScheme="yellow"
+                    size="sm"
+                    mr={2}
+                    onClick={() => {
+                      setFormData(product);
+                      onOpen();
+                    }}
+                  >
+                    Modificar
+                  </Button>
+                  <Button
+                    colorScheme="red"
+                    size="sm"
+                    onClick={() => handleDeleteProduct(product.id)}
+                  >
+                    Eliminar
+                  </Button>
+                </Box>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
 
       {/* Modal para agregar o modificar producto */}
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -270,7 +298,7 @@ export const AdminPanel = () => {
               />
             </FormControl>
             <FormControl id="imgUrl" mb={4}>
-              <FormLabel>URL de la imagen</FormLabel>
+              <FormLabel>URL de Imagen</FormLabel>
               <Input
                 type="text"
                 value={formData.imgUrl}
@@ -282,12 +310,14 @@ export const AdminPanel = () => {
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={handleAddOrUpdateProduct}>
-              {formData.id ? "Actualizar Producto" : "Agregar Producto"}
+            <Button
+              colorScheme="teal"
+              mr={3}
+              onClick={handleAddOrUpdateProduct}
+            >
+              {formData.id ? "Guardar Cambios" : "Agregar Producto"}
             </Button>
-            <Button ml={3} onClick={onClose}>
-              Cancelar
-            </Button>
+            <Button onClick={onClose}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
