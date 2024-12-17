@@ -22,6 +22,7 @@ import {
   ModalFooter,
   useToast,
 } from "@chakra-ui/react";
+import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog"; // Componente de confirmación de eliminación
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById, clearProduct } from "../redux/slices/productSlice";
@@ -42,9 +43,17 @@ export const AdminPanel = () => {
     stock: "",
   });
   const [shouldReload, setShouldReload] = useState(false);
-
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // Estado para el diálogo de confirmación
+  const {
+    isOpen: isDeleteDialogOpen,
+    onOpen: openDeleteDialog,
+    onClose: closeDeleteDialog,
+  } = useDisclosure();
+  const [productToDelete, setProductToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -75,6 +84,8 @@ export const AdminPanel = () => {
   }, [shouldReload]);
 
   const handleDeleteProduct = async (id) => {
+    // Agregar estado de carga durante la eliminación
+    setIsDeleting(true);
     try {
       await api.delete(`/admin-api/products/${id}`);
       setProducts(products.filter((product) => product.id !== id));
@@ -92,6 +103,9 @@ export const AdminPanel = () => {
         status: "error",
         duration: 3000,
       });
+    } finally {
+      setIsDeleting(false);
+      closeDeleteDialog();
     }
   };
 
@@ -211,7 +225,11 @@ export const AdminPanel = () => {
                   <Button
                     colorScheme="red"
                     size="sm"
-                    onClick={() => handleDeleteProduct(product.id)}
+                    // Abre el diálogo de confirmación antes de eliminar
+                    onClick={() => {
+                      setProductToDelete(product.id);
+                      openDeleteDialog();
+                    }}
                   >
                     Eliminar
                   </Button>
@@ -321,6 +339,14 @@ export const AdminPanel = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+
+      {/* Diálogo de confirmación para eliminar producto */}
+      <ConfirmDeleteDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={() => handleDeleteProduct(productToDelete)}
+        isDeleting={isDeleting}
+      />
     </Box>
   );
 };
