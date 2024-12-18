@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import configureStore from "redux-mock-store";
 import api from "../../../client/src/config/axiosConfig"; // Importamos la instancia específica de api
-import { ProductList } from "../../../client/src/components/ProductList";
+import { ProductList } from "../../../client/src/components/main-page/ProductList";
 import ResizeObserver from "resize-observer-polyfill";
 
 // Mockear módulos relacionados con Firebase

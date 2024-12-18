@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DesktopSubNav } from "../../../client/src/components/DesktopSubNav";
+import { DesktopSubNav } from "../../../client/src/components/main-page/DesktopSubNav";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import configureStore from "redux-mock-store";

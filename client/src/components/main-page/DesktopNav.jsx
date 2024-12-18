@@ -11,7 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DesktopSubNav } from "./DesktopSubNav";
-import { NAV_ITEMS } from "../utils/navItems";
+import { NAV_ITEMS } from "../../utils/navItems";
 
 export const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");

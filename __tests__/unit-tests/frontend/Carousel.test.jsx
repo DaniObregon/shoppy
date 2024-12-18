@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, act, fireEvent } from "@testing-library/react";
-import { Carousel } from "../../../client/src/components/Carousel";
+import { Carousel } from "../../../client/src/components/main-page/Carousel";
 import { ChakraProvider } from "@chakra-ui/react";
 import { slides } from "../../../client/src/data/carouselSlides"; // Importamos los slides directamente
 

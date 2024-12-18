@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Auth } from "../../../client/src/components/Auth";
+import { Auth } from "../../../client/src/components/main-page/Auth";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { BrowserRouter } from "react-router-dom";

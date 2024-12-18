@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import mercadolibreIcon from "../assets/mercadopagoIcon.png";
+import mercadolibreIcon from "../../assets/mercadopagoIcon.png";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductById, clearProduct } from "../redux/slices/productSlice";
+import { fetchProductById, clearProduct } from "../../redux/slices/productSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import { TooltipBadge } from "./TooltipBadge";
 import {

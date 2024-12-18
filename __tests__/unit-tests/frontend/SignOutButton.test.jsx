@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { SignOutButton } from "../../../client/src/components/SignOutButton";
+import { SignOutButton } from "../../../client/src/components/main-page/SignOutButton";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";

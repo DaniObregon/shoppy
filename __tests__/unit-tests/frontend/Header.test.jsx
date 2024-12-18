@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Header } from "../../../client/src/components/Header";
+import { Header } from "../../../client/src/components/main-page/Header";
 
 describe("Header component", () => {
   test("Should render Header component with expected structure", () => {

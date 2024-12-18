@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { AddToCartButton } from "../../../client/src/components/AddToCartButton";
+import { AddToCartButton } from "../../../client/src/components/main-page/AddToCartButton";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
