@@ -80,6 +80,8 @@ export const Card = ({ id, brand, model, description, price, imgUrl }) => {
             display: "-webkit-box",
             WebkitLineClamp: "3",
             WebkitBoxOrient: "vertical",
+            wordBreak: "break-word", // Corta palabras largas automáticamente
+            overflowWrap: "break-word", // Compatibilidad adicional
           }}
         >
           {description}

@@ -3,7 +3,7 @@ import { Stack, useColorModeValue } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MobileNavItem } from "./MobileNavItem";
-import { NAV_ITEMS } from "../utils/navItems";
+import { NAV_ITEMS } from "../../utils/navItems";
 
 export const MobileNav = () => {
   const [openIndex, setOpenIndex] = useState(null); // Estado para controlar qué ítem está abierto

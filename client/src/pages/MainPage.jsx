@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar } from "../components/Navbar";
-import { Header } from "../components/Header";
-import { Carousel } from "../components/Carousel";
-import { ProductList } from "../components/ProductList";
+import { Navbar } from "../components/main-page/Navbar";
+import { Header } from "../components/main-page/Header";
+import { Carousel } from "../components/main-page/Carousel";
+import { ProductList } from "../components/main-page/ProductList";
 
 export const MainPage = () => {
   return (

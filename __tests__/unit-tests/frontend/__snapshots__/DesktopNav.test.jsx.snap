@@ -17,7 +17,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
         id="popover-trigger-:r1b:"
         role="link"
       >
-        Capilares
+        Categorias
       </a>
       <div
         class="chakra-popover__popper css-1qq679y"
@@ -46,7 +46,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
                   <p
                     class="chakra-text css-sc37ud"
                   >
-                    Coloración
+                    Tecnologia
                   </p>
                   <p
                     class="chakra-text css-itvw0n"
@@ -81,7 +81,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
                   <p
                     class="chakra-text css-sc37ud"
                   >
-                    Styling
+                    Electro
                   </p>
                   <p
                     class="chakra-text css-itvw0n"
@@ -116,7 +116,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
                   <p
                     class="chakra-text css-sc37ud"
                   >
-                    HairCare
+                    Herramientas
                   </p>
                   <p
                     class="chakra-text css-itvw0n"
@@ -151,7 +151,112 @@ exports[`DesktopNav component should match snapshot 1`] = `
                   <p
                     class="chakra-text css-sc37ud"
                   >
-                    Forma
+                    Juguetes
+                  </p>
+                  <p
+                    class="chakra-text css-itvw0n"
+                  />
+                </div>
+                <div
+                  class="css-2gz105"
+                >
+                  <svg
+                    class="chakra-icon chakra-icon css-1ossod7"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a
+              class="chakra-link css-g5555e"
+              role="group"
+            >
+              <div
+                class="chakra-stack css-1igwmid"
+              >
+                <div
+                  class="css-0"
+                >
+                  <p
+                    class="chakra-text css-sc37ud"
+                  >
+                    Jardin
+                  </p>
+                  <p
+                    class="chakra-text css-itvw0n"
+                  />
+                </div>
+                <div
+                  class="css-2gz105"
+                >
+                  <svg
+                    class="chakra-icon chakra-icon css-1ossod7"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a
+              class="chakra-link css-g5555e"
+              role="group"
+            >
+              <div
+                class="chakra-stack css-1igwmid"
+              >
+                <div
+                  class="css-0"
+                >
+                  <p
+                    class="chakra-text css-sc37ud"
+                  >
+                    Zapatillas
+                  </p>
+                  <p
+                    class="chakra-text css-itvw0n"
+                  />
+                </div>
+                <div
+                  class="css-2gz105"
+                >
+                  <svg
+                    class="chakra-icon chakra-icon css-1ossod7"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a
+              class="chakra-link css-g5555e"
+              role="group"
+            >
+              <div
+                class="chakra-stack css-1igwmid"
+              >
+                <div
+                  class="css-0"
+                >
+                  <p
+                    class="chakra-text css-sc37ud"
+                  >
+                    OFERTAS!
                   </p>
                   <p
                     class="chakra-text css-itvw0n"
@@ -188,60 +293,8 @@ exports[`DesktopNav component should match snapshot 1`] = `
         id="popover-trigger-:r1d:"
         role="link"
       >
-        Manos y Uñas
+        Todos los productos
       </a>
-      <div
-        class="chakra-popover__popper css-1qq679y"
-        style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
-      >
-        <section
-          class="chakra-popover__content css-r1kswd"
-          id="popover-content-:r1d:"
-          role="tooltip"
-          style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.95);"
-          tabindex="-1"
-        >
-          <div
-            class="chakra-stack css-8g8ihq"
-          >
-            <a
-              class="chakra-link css-g5555e"
-              role="group"
-            >
-              <div
-                class="chakra-stack css-1igwmid"
-              >
-                <div
-                  class="css-0"
-                >
-                  <p
-                    class="chakra-text css-sc37ud"
-                  >
-                    Prueba children
-                  </p>
-                  <p
-                    class="chakra-text css-itvw0n"
-                  />
-                </div>
-                <div
-                  class="css-2gz105"
-                >
-                  <svg
-                    class="chakra-icon chakra-icon css-1ossod7"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </div>
-        </section>
-      </div>
     </div>
     <div
       class="css-0"
@@ -254,7 +307,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
         id="popover-trigger-:r1f:"
         role="link"
       >
-        Maquillaje
+        ¿Donde estamos?
       </a>
     </div>
     <div
@@ -268,7 +321,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
         id="popover-trigger-:r1h:"
         role="link"
       >
-        Equipamientos
+        Quienes somos...
       </a>
     </div>
     <div
@@ -282,7 +335,7 @@ exports[`DesktopNav component should match snapshot 1`] = `
         id="popover-trigger-:r1j:"
         role="link"
       >
-        Estética y Spa
+        Contactanos
       </a>
     </div>
   </div>

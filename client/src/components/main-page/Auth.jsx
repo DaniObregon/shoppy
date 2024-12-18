@@ -1,12 +1,12 @@
-import api from "../config/axiosConfig"
+import api from "../../config/axiosConfig"
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { SignUpButton } from "./SignUpButton";
 import { SignOutButton } from "./SignOutButton";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../config/firebaseConfig";
+import { auth } from "../../config/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../redux/slices/userSlice";
+import { login, logout } from "../../redux/slices/userSlice";
 import { Flex, Text, Stack } from "@chakra-ui/react";
 
 export const Auth = ({ onAuthSuccess }) => {
@@ -26,6 +26,7 @@ export const Auth = ({ onAuthSuccess }) => {
         name: user.displayName,
         email: user.email,
         role_id: 1, // Rol por defecto (client)
+        token: token, // Guardamos el token aquí
       };
 
       //console.log("Datos que se envían al backend:", userData);
@@ -48,12 +49,13 @@ export const Auth = ({ onAuthSuccess }) => {
 
       //console.log("Datos recibidos del backend:", { name: name, email: email, role: role });
 
-      // Actualizar el estado global de Redux con los datos del usuario
+      // Actualizar el estado global de Redux con los datos del usuario incluyendo el token
       dispatch(
         login({
           name: name,
           email: email,
           role_id: role,
+          token: token,
         })
       );
 
