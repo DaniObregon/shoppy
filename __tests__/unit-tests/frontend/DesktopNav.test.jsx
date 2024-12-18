@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DesktopNav } from "../../../client/src/components/DesktopNav";
+import { DesktopNav } from "../../../client/src/components/main-page/DesktopNav";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { ChakraProvider } from "@chakra-ui/react";

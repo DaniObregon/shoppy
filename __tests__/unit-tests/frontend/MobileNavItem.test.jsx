@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { MobileNavItem } from "../../../client/src/components/MobileNavItem";
+import { MobileNavItem } from "../../../client/src/components/main-page/MobileNavItem";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
 

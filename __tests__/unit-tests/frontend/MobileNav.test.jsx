@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { MobileNav } from "../../../client/src/components/MobileNav";
+import { MobileNav } from "../../../client/src/components/main-page/MobileNav";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { ChakraProvider } from "@chakra-ui/react";

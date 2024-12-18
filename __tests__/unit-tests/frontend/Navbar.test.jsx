@@ -1,13 +1,11 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DesktopNav } from "../../../client/src/components/DesktopNav";
-import { Navbar } from "../../../client/src/components/Navbar";
+import { Navbar } from "../../../client/src/components/main-page/Navbar";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 // Mockear módulos relacionados con Firebase
 jest.mock("../../../client/src/config/firebaseConfig", () => ({
@@ -21,7 +19,7 @@ jest.mock("react-router-dom", () => ({
 
 jest.mock("../../../client/src/assets/butterflyLogo.png", () => "");
 
-jest.mock("../../../client/src/components/MobileNav", () => {
+jest.mock("../../../client/src/components/main-page/MobileNav", () => {
   return {
     MobileNav: () => <div data-testid="mobile-nav">Mobile Nav</div>,
   };

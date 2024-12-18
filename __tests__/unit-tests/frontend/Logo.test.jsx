@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Logo } from "../../../client/src/components/Logo";
+import { Logo } from "../../../client/src/components/main-page/Logo";
 import { MemoryRouter, useNavigate } from "react-router-dom";
 
 // Mock de useNavigate para simular redirección

@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { SignUpButton } from "../../../client/src/components/SignUpButton";
+import { SignUpButton } from "../../../client/src/components/main-page/SignUpButton";
 
 /**
  * Renderización: Se verifica que el botón se renderice correctamente y que contenga el texto esperado.

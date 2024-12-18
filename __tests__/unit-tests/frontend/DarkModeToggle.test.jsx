@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DarkModeToggle } from "../../../client/src/components/DarkModeToggle";
+import { DarkModeToggle } from "../../../client/src/components/main-page/DarkModeToggle";
 import { ChakraProvider } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/react";
 
