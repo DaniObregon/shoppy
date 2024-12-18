@@ -5,7 +5,7 @@ import { ProductTable } from "./ProductTable";
 import { ProductFormModal } from "./ProductFormModal";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import api from "../config/axiosConfig";
+import api from "../../config/axiosConfig";
 
 export const AdminPanel = () => {
   const navigate = useNavigate();

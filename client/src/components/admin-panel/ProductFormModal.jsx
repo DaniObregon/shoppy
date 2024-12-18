@@ -13,7 +13,7 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import api from "../config/axiosConfig";
+import api from "../../config/axiosConfig";
 
 export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }) => {
   const toast = useToast();
