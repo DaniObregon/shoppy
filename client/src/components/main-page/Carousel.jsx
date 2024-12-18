@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { slides } from "../data/carouselSlides";
+import { slides } from "../../data/carouselSlides";
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

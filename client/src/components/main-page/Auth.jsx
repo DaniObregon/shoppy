@@ -1,12 +1,12 @@
-import api from "../config/axiosConfig"
+import api from "../../config/axiosConfig"
 import React from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { SignUpButton } from "./SignUpButton";
 import { SignOutButton } from "./SignOutButton";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../config/firebaseConfig";
+import { auth } from "../../config/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../redux/slices/userSlice";
+import { login, logout } from "../../redux/slices/userSlice";
 import { Flex, Text, Stack } from "@chakra-ui/react";
 
 export const Auth = ({ onAuthSuccess }) => {
