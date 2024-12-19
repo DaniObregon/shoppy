@@ -26,7 +26,7 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET DEFAULT',
-        defaultValue: 1, // Asumiendo que el role "client" tiene id 1
+        defaultValue: 1, // El role "client" debe tener id 1
       },
       createdAt: {
         allowNull: false,

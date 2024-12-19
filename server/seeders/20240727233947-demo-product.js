@@ -7,6 +7,7 @@ module.exports = {
       "Products",
       [
         {
+          id: 1,
           name: "Zapatillas",
           brand: "Nike",
           model: "Air",
