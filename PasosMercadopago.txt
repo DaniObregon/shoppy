@@ -1,0 +1,27 @@
+1. Crear y Configurar Tu Cuenta en MercadoPago
+Regístrate como desarrollador en MercadoPago si aún no lo has hecho.
+Accede al dashboard de MercadoPago y obtén tus credenciales: Access Token y Public Key para el entorno de desarrollo (sandbox) y producción.
+2. Define Tu Flujo de Pago
+Checkout Pro: Redirige al usuario a la página de MercadoPago para completar la compra.
+Checkout Básico: Integra un formulario de pago directamente en tu aplicación (requiere más desarrollo y cumplimiento de regulaciones).
+3. Configura Tu Backend
+Integra el SDK de MercadoPago para manejar las órdenes y pagos.
+Implementa un endpoint para crear las preferencias de pago, definiendo detalles como:
+Descripción del producto.
+Precio y cantidad.
+Información del comprador.
+URLs de notificación (success, failure, pending).
+4. Maneja Notificaciones de Pago (Webhooks)
+Configura una ruta en tu backend para recibir webhooks de MercadoPago y actualizar el estado de las órdenes en tu base de datos según el estado del pago.
+5. Implementa el Frontend
+Usa el SDK de JavaScript de MercadoPago para interactuar con el API desde el frontend, si eliges el Checkout Básico.
+Asegúrate de manejar correctamente los redireccionamientos o los resultados del proceso de pago.
+6. Pruebas y Validaciones
+Usa el modo sandbox para simular pagos y asegurarte de que todo el flujo funciona correctamente.
+Realiza pruebas con diferentes escenarios: pago aprobado, pendiente, rechazado.
+7. Pasar a Producción
+Cambia las credenciales a las de producción.
+Asegúrate de cumplir con las regulaciones locales para la gestión de pagos y datos de clientes.
+8. Optimización y Seguridad
+Implementa medidas de seguridad como CORS y validaciones estrictas en el backend.
+Optimiza la experiencia de usuario, asegurándote de que el flujo de pago sea claro y sencillo.
