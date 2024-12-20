@@ -16,7 +16,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("pending", "approved", "rejected"),
         allowNull: false,
       },
-      amount: DataTypes.DOUBLE,
+      amount: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+        validate: {
+          min: 0.01, // Monto mínimo permitido
+        },
+      },
     },
     {
       sequelize,

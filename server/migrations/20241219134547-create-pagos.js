@@ -42,6 +42,9 @@ module.exports = {
       amount: {
         type: Sequelize.DOUBLE,
         allowNull: false,
+        validate: {
+          min: 0.01, // Monto mínimo permitido: 0.01 (evita 0 o valores negativos)
+        },
       },
       createdAt: {
         allowNull: false,
