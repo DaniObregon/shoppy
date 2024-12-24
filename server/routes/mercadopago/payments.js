@@ -99,7 +99,6 @@ router.post("/checkout", async (req, res) => {
     // Crear la preferencia directamente sin parsear el JSON
     const response = await preference.create({ body: preferenceData });
 
-
     console.log(
       "📤 Respuesta de Mercado Pago:",
       JSON.stringify(response, null, 2)

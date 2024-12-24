@@ -12,7 +12,7 @@ module.exports = {
           product_id: 1, // ID del producto existente (Zapatillas Nike Air)
           payment_id: "abc123", // ID ficticio único de pago
           status: "approved", // Estado del pago
-          amount: 3025.5, // Monto pagado
+          amount: 120.56, // Monto pagado
           createdAt: new Date(),
           updatedAt: new Date(),
         },
