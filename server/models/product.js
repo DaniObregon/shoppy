@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       model: DataTypes.STRING,
       description: DataTypes.TEXT,
       price: DataTypes.DOUBLE,
-      stock: DataTypes.INTEGER,
+      stock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
       imgUrl: DataTypes.STRING,
     },
     {
