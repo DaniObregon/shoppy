@@ -35,16 +35,40 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      status: {
-        type: Sequelize.ENUM("pending", "approved", "rejected"),
+      //Valor del producto
+      transaction_amount: {
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
-      amount: {
-        type: Sequelize.DOUBLE,
+      //Total pagado
+      total_paid_amount: {
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
-        validate: {
-          min: 0.01, // Monto mínimo permitido: 0.01 (evita 0 o valores negativos)
-        },
+      },
+      //Total recibido
+      net_received_amount: {
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false,
+      },
+      //Detalle en el que resultó el Cobro
+      status_detail: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      //status: estado actual del pago. Approved, pending...
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      //Fecha de liberacion del dinero
+      money_release_date: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      //currency_id: id de la moneda de pago
+      currency_id: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
