@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
+      fee_amount: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
       net_received_amount: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,

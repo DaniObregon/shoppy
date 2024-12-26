@@ -34,6 +34,10 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
           "✅ Detalles del pago:",
           JSON.stringify(paymentData, null, 2)
         );
+        const feeAmount = paymentData?.fee_details?.[0]?.amount || null;
+
+        console.log("💵 Monto de la tarifa (fee_amount):", feeAmount);
+
         return paymentData;
       } else {
         const errorText = await response.text();
@@ -59,8 +63,8 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
 router.post("/", async (req, res) => {
   console.log("🔔 Notificación recibida:");
   console.log("👉 req.body:", JSON.stringify(req.body, null, 2));
-  console.log("👉 req.query:", JSON.stringify(req.query, null, 2));
-  console.log("👉 req.headers:", JSON.stringify(req.headers, null, 2));
+  //console.log("👉 req.query:", JSON.stringify(req.query, null, 2));
+  //console.log("👉 req.headers:", JSON.stringify(req.headers, null, 2));
 
   // Extraer el ID de req.body.data.id
   const paymentId = req.body?.data?.id;

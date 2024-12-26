@@ -45,6 +45,10 @@ module.exports = {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
+      fee_amount: { // ➡️ Nuevo campo
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: true,
+      },
       //Total recibido
       net_received_amount: {
         type: Sequelize.DECIMAL(10, 2),

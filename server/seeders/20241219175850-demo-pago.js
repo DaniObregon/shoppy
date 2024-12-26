@@ -14,6 +14,7 @@ module.exports = {
           status: "approved", // Estado del pago
           transaction_amount: 100, // Valor del producto
           total_paid_amount: 100, // Total pagado
+          fee_amount: 7.61,
           net_received_amount: 98, // Total recibido
           status_detail: "accredited", // Detalles del estado
           money_release_date: new Date(), // Fecha de liberación del dinero
