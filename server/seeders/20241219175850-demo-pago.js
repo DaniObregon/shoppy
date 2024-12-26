@@ -12,11 +12,12 @@ module.exports = {
           product_id: 1, // ID del producto existente (Zapatillas Nike Air)
           payment_id: "abc123", // ID ficticio único de pago
           status: "approved", // Estado del pago
-          transaction_amount: 120.56, // Valor del producto
-          total_paid_amount: 120.56, // Total pagado
-          net_received_amount: 120.0, // Total recibido
+          transaction_amount: 100, // Valor del producto
+          total_paid_amount: 100, // Total pagado
+          net_received_amount: 98, // Total recibido
           status_detail: "accredited", // Detalles del estado
           money_release_date: new Date(), // Fecha de liberación del dinero
+          money_release_status:"pending",
           currency_id: "ARS", // Moneda
           createdAt: new Date(),
           updatedAt: new Date(),

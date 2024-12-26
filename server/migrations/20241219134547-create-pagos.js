@@ -65,6 +65,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true,
       },
+      money_release_status:{
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       //currency_id: id de la moneda de pago
       currency_id: {
         type: Sequelize.STRING,

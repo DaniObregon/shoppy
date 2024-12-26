@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         allowNull: true,
       },
+      money_release_status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       currency_id: {
         type: DataTypes.STRING,
         allowNull: false,
