@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
-
-// Clave secreta de Mercado Pago (access_token)
-const SECRET_KEY =
-  "APP_USR-36260699324777-122016-27095c6a5ae685e58f439599c0c6030c-2167471827";
+const { client } = require("../../config/mercadopago");
 
 // Función para retrasar en milisegundos
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -21,7 +18,7 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${SECRET_KEY}`,
+            Authorization: `Bearer ${client.accessToken}`,
           },
         }
       );
@@ -63,8 +60,6 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
 router.post("/", async (req, res) => {
   console.log("🔔 Notificación recibida:");
   console.log("👉 req.body:", JSON.stringify(req.body, null, 2));
-  //console.log("👉 req.query:", JSON.stringify(req.query, null, 2));
-  //console.log("👉 req.headers:", JSON.stringify(req.headers, null, 2));
 
   // Extraer el ID de req.body.data.id
   const paymentId = req.body?.data?.id;
