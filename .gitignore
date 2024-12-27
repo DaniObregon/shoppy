@@ -36,4 +36,4 @@ dist-ssr
 /server/secrets/shoppy-firebase-admin-secret.json
 
 #Logs Mercadopago
-logs-mercadopago.txt
+Mercadopago-Logs.txt

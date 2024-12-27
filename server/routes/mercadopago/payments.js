@@ -84,7 +84,7 @@ router.post("/checkout", async (req, res) => {
       auto_return: "approved",
       external_reference: `order_${Date.now()}`,
       notification_url:
-        "https://5310-186-139-54-151.ngrok-free.app/mercadopago/webhook",
+        "https://ab0a-186-139-54-151.ngrok-free.app/mercadopago/webhook",
       payer: {
         email: email,
       },
