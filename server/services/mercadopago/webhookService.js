@@ -22,7 +22,7 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
 
       if (response.ok) {
         const paymentData = await response.json();
-        console.log("✅ Pago obtenido con éxito:", paymentData);
+        // console.log("✅ Pago obtenido con éxito:", paymentData);
         return paymentData;
       } else {
         console.warn(

@@ -2,8 +2,6 @@ const { Pago } = require("../../models");
 
 // Guardar o actualizar un pago en la base de datos
 async function saveOrUpdatePayment(paymentData) {
-  console.log("PAYMENT DATA: ", paymentData);
-
   const {
     id: payment_id,
     transaction_amount,
