@@ -1,13 +1,11 @@
 const fetch = require("node-fetch");
+const {
+  saveOrUpdatePayment,
+} = require("../../repositories/mercadopago/pagoRepository");
 const { client } = require("../../config/mercadopago");
 const { delay } = require("../../utils/delay");
 
-/**
- * Realiza reintentos para obtener los detalles de un pago desde Mercado Pago.
- * @param {string} paymentId - ID del pago.
- * @param {number} retries - Número máximo de reintentos.
- * @returns {Promise<Object>} - Datos del pago.
- */
+// Función para obtener detalles del pago con reintentos
 async function fetchPaymentWithRetries(paymentId, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -18,30 +16,20 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
         `https://api.mercadopago.com/v1/payments/${paymentId}`,
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${client.accessToken}`,
-          },
+          headers: { Authorization: `Bearer ${client.accessToken}` },
         }
       );
 
-      console.log("📡 Respuesta de Mercado Pago - Status:", response.status);
-
       if (response.ok) {
         const paymentData = await response.json();
-        console.log(
-          "✅ Detalles del pago:",
-          JSON.stringify(paymentData, null, 2)
-        );
-        const feeAmount = paymentData?.fee_details?.[0]?.amount || null;
-
-        console.log("💵 Monto de la tarifa (fee_amount):", feeAmount);
-
+        console.log("✅ Pago obtenido con éxito:", paymentData);
         return paymentData;
       } else {
-        const errorText = await response.text();
         console.warn(
-          `⚠️ Error en intento ${attempt}: ${response.status} - ${errorText}`
+          `⚠️ Intento ${attempt} fallido. Status: ${response.status}`
         );
+        const errorText = await response.text();
+        console.warn(`⚠️ Detalle del error: ${errorText}`);
       }
     } catch (error) {
       console.error(`❌ Error en intento ${attempt}:`, error.message);
@@ -56,4 +44,10 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
   throw new Error("🚨 Fallaron todos los intentos para consultar el pago.");
 }
 
-module.exports = { fetchPaymentWithRetries };
+// Procesar la notificación del webhook
+async function processPaymentNotification(paymentId) {
+  const paymentData = await fetchPaymentWithRetries(paymentId);
+  await saveOrUpdatePayment(paymentData);
+}
+
+module.exports = { processPaymentNotification };

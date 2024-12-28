@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Preference } = require("mercadopago");
 const { client } = require("../../config/mercadopago");
 const { Product } = require("../../models");
+const { User } = require("../../models");
 
 router.post("/checkout", async (req, res) => {
   try {
@@ -60,6 +61,16 @@ router.post("/checkout", async (req, res) => {
       })
     );
 
+    // Buscar el user_id a partir del email
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) {
+      console.error(`❌ Usuario con email ${email} no encontrado`);
+      return res
+        .status(404)
+        .json({ error: `Usuario con email ${email} no encontrado` });
+    }
+
     // Validación extra de los items antes de enviarlos a Mercado Pago
     productData.forEach((item) => {
       if (
@@ -82,11 +93,16 @@ router.post("/checkout", async (req, res) => {
         pending: `https://doshoppy.netlify.app/`,
       },
       auto_return: "approved",
-      external_reference: `order_${Date.now()}`,
+      external_reference: JSON.stringify({
+        order: `order_${Date.now()}`,
+        user_id: user.id, // Agregamos el user_id en el external_reference como un objeto
+      }),
       notification_url:
-        "https://ab0a-186-139-54-151.ngrok-free.app/mercadopago/webhook",
+        "https://2c87-186-139-54-151.ngrok-free.app/mercadopago/webhook",
       payer: {
         email: email,
+        // Asociar el user_id con la preferencia
+        user_id: user.id, // Aquí agregamos el user_id del usuario encontrado
       },
     };
 

@@ -1,32 +1,38 @@
 const {
-  fetchPaymentWithRetries,
+  processPaymentNotification,
 } = require("../../services/mercadopago/webhookService");
 
 /**
- * Controlador para manejar notificaciones de Mercado Pago.
- * @param {Object} req - Objeto de solicitud Express.
- * @param {Object} res - Objeto de respuesta Express.
+ * Maneja las notificaciones de webhook de Mercado Pago.
+ * @param {Object} req - Objeto de solicitud de Express.
+ * @param {Object} res - Objeto de respuesta de Express.
  */
 async function handleWebhook(req, res) {
-  console.log("🔔 Notificación recibida:");
-  console.log("👉 req.body:", JSON.stringify(req.body, null, 2));
+  console.log("🔔 Notificación recibida:", JSON.stringify(req.body, null, 2));
+  console.log("BODY: ::::::::::::::::::::::::::::::::", req.body);
 
+  // Asegúrate de acceder a req.body.data.id, ya que es allí donde se encuentra el ID del pago
   const paymentId = req.body?.data?.id;
-  console.log("🔍 ID extraído de req.body.data.id:", paymentId);
+
+  console.log("PAYMENT ID (paymentId)::::::::::::::::::: ", paymentId);
+  
 
   if (!paymentId) {
-    console.warn("⚠️ No se encontró un ID válido en req.body.data.id.");
-    return res.sendStatus(200); // OK, pero sin procesar correctamente
+    console.warn("⚠️ Webhook mal formado: falta 'data.id'");
+    return res
+      .status(400)
+      .json({ error: "Malformed webhook: 'data.id' is missing" });
   }
 
   try {
-    await fetchPaymentWithRetries(paymentId);
-    console.log("✅ Pago procesado correctamente.");
+    await processPaymentNotification(paymentId);
+    console.log("✅ Webhook procesado correctamente.");
   } catch (error) {
-    console.error("❌ Error al procesar el pago:", error.message);
+    console.error("❌ Error en el controlador del webhook:", error.message);
   }
 
-  res.sendStatus(200); // OK siempre, para evitar reintentos innecesarios de Mercado Pago.
+  // Siempre respondemos con 200 OK para que Mercado Pago no reintente
+  res.sendStatus(200);
 }
 
 module.exports = { handleWebhook };

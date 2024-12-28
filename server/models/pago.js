@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Pago.init(
     {
-      user_id: DataTypes.INTEGER,
-      product_id: DataTypes.INTEGER,
-      payment_id: DataTypes.STRING,
+      user_id: DataTypes.BIGINT,
+      product_id: DataTypes.BIGINT,
+      payment_id: DataTypes.BIGINT,
       transaction_amount: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,

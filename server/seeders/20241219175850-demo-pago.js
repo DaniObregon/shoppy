@@ -10,7 +10,7 @@ module.exports = {
           id: 1,
           user_id: 1, // ID del usuario existente (John Doe)
           product_id: 1, // ID del producto existente (Zapatillas Nike Air)
-          payment_id: "abc123", // ID ficticio único de pago
+          payment_id: "123456789", // ID ficticio único de pago
           status: "approved", // Estado del pago
           transaction_amount: 100, // Valor del producto
           total_paid_amount: 100, // Total pagado
@@ -29,6 +29,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Pagos", { payment_id: "abc123" }, {});
+    await queryInterface.bulkDelete("Pagos", { payment_id: "123456789" }, {});
   },
 };
