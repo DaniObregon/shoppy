@@ -8,31 +8,37 @@ const {
  * @param {Object} res - Objeto de respuesta de Express.
  */
 async function handleWebhook(req, res) {
-  console.log("🔔 Notificación recibida:", JSON.stringify(req.body, null, 2));
-  console.log("BODY: ::::::::::::::::::::::::::::::::", req.body);
+  // console.log("🔔 Notificación recibida:", JSON.stringify(req.body, null, 2));
+  // console.log("BODY: ", req.body);
 
-  // Asegúrate de acceder a req.body.data.id, ya que es allí donde se encuentra el ID del pago
-  const paymentId = req.body?.data?.id;
+  const { type, data } = req.body;
 
-  console.log("PAYMENT ID (paymentId)::::::::::::::::::: ", paymentId);
-  
+  // Validar si la notificación es de tipo 'payment' y tiene 'data.id'
+  if (type === "payment" && data?.id) {
+    const paymentId = data.id;
+    console.log("✅ Notificación 'payment' válida recibida. paymentId:", paymentId);
+    console.log("BODY: ", req.body);
 
-  if (!paymentId) {
-    console.warn("⚠️ Webhook mal formado: falta 'data.id'");
-    return res
-      .status(400)
-      .json({ error: "Malformed webhook: 'data.id' is missing" });
+    try {
+      await processPaymentNotification(paymentId);
+      console.log(
+        "✅ Webhook procesado correctamente para PAYMENT ID:",
+        paymentId
+      );
+    } catch (error) {
+      console.error(
+        "❌ Error al procesar la notificación 'payment':",
+        error.message
+      );
+    }
+
+    // Responder siempre con 200 OK para evitar reintentos de mercadopago
+    return res.sendStatus(200);
   }
 
-  try {
-    await processPaymentNotification(paymentId);
-    console.log("✅ Webhook procesado correctamente.");
-  } catch (error) {
-    console.error("❌ Error en el controlador del webhook:", error.message);
-  }
-
-  // Siempre respondemos con 200 OK para que Mercado Pago no reintente
-  res.sendStatus(200);
+  // Para cualquier otro tipo de notificación, responder con 200 OK
+  console.log("ℹ️ Notificación no relevante, se responde con 200 OK.");
+  return res.sendStatus(200);
 }
 
 module.exports = { handleWebhook };
