@@ -78,6 +78,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      payer_name: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      identification: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      phone_number: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

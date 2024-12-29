@@ -48,6 +48,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      payer_name: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      identification: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      phone_number: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       sequelize,

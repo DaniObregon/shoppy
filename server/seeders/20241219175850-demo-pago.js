@@ -20,6 +20,9 @@ module.exports = {
           money_release_date: new Date(), // Fecha de liberación del dinero
           money_release_status:"pending",
           currency_id: "ARS", // Moneda
+          payer_name:"Giuseppe Fiorentino",
+          identification: "DNI 12457898",
+          phone_number: "1155718458",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
