@@ -98,11 +98,11 @@ router.post("/checkout", async (req, res) => {
         user_id: user.id, // Agregamos el user_id en el external_reference como un objeto
       }),
       notification_url:
-        "https://a078-186-139-54-151.ngrok-free.app/mercadopago/webhook",
+        "https://9902-186-139-54-151.ngrok-free.app/mercadopago/webhook",
       payer: {
         email: email,
         // Asociar el user_id con la preferencia
-        user_id: user.id, // Aquí agregamos el user_id del usuario encontrado
+        user_id: user.id, // Se agrega el user_id del usuario encontrado
       },
     };
 
