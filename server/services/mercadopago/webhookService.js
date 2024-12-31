@@ -47,7 +47,7 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
 // Procesar la notificación del webhook
 async function processPaymentNotification(paymentId) {
   const paymentData = await fetchPaymentWithRetries(paymentId);
-  console.log("✅ Pago obtenido con éxito::: ", paymentData);
+  // console.log("✅ Pago obtenido con éxito::: ", paymentData);
   await saveOrUpdatePayment(paymentData);
 }
 
