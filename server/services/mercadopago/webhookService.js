@@ -22,7 +22,6 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
 
       if (response.ok) {
         const paymentData = await response.json();
-        // console.log("✅ Pago obtenido con éxito:", paymentData);
         return paymentData;
       } else {
         console.warn(
@@ -30,17 +29,33 @@ async function fetchPaymentWithRetries(paymentId, retries = 3) {
         );
         const errorText = await response.text();
         console.warn(`⚠️ Detalle del error: ${errorText}`);
+
+        // Si el error es un 404, no reintentamos
+        if (response.status === 404) {
+          console.warn(
+            "⚠️ Error 404: Recurso no encontrado. No se reintentará."
+          );
+          break;
+        }
+
+        // Ajustamos el número de reintentos si el código de error es específico
+        if (response.status === 500 || response.status === 502) {
+          console.log("⏳ Esperando 2 segundos antes de reintentar...");
+          await delay(2000);
+        }
       }
     } catch (error) {
       console.error(`❌ Error en intento ${attempt}:`, error.message);
     }
 
-    if (attempt < retries) {
+    // Si no es un 404, reintentamos según lo programado
+    if (attempt < retries && !(response && response.status === 404)) {
       console.log("⏳ Esperando 2 segundos antes de reintentar...");
       await delay(2000);
     }
   }
 
+  // Si llegamos aquí, significa que fallaron los intentos o el error fue un 404
   throw new Error("🚨 Fallaron todos los intentos para consultar el pago.");
 }
 
