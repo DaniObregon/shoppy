@@ -7,12 +7,14 @@ const { delay } = require("../../utils/delay");
 
 // Función para obtener detalles del pago con reintentos
 async function fetchPaymentWithRetries(paymentId, retries = 3) {
+  let response = null;
+
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       console.log(
         `🌐 [Intento ${attempt}] Consultando pago con ID: ${paymentId}`
       );
-      const response = await fetch(
+      response = await fetch(
         `https://api.mercadopago.com/v1/payments/${paymentId}`,
         {
           method: "GET",
