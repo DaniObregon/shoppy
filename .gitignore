@@ -34,3 +34,6 @@ dist-ssr
 #/server/things/shoppy-153a0-firebase-adminsdk-r3s3l-a96e044339.json
 #/server/things/shoppy-firebase-admin-secret.json
 /server/secrets/shoppy-firebase-admin-secret.json
+
+#Logs Mercadopago
+Mercadopago-Logs.txt
