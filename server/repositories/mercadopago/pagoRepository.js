@@ -24,6 +24,7 @@ async function saveOrUpdatePayment(paymentData) {
     user_id = parsedReference.user_id || null; // Extraemos el user_id desde el JSON
   } catch (error) {
     console.error("❌ Error al parsear external_reference:", error);
+    throw new Error("❌ Error al guardar el pago");
   }
 
   const product_id = additional_info?.items?.[0]?.id || null;
