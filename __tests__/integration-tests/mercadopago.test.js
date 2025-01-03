@@ -1,12 +1,13 @@
-const mercadopago = require("../../server/config/mercadopago");
+//const mercadopago = require("../../server/config/mercadopago");
+const { client } = require("../../server/config/mercadopago");
 
 describe("Mercado Pago Configuration Test", () => {
   it("debería verificar que las credenciales de Mercado Pago están configuradas correctamente", () => {
     expect.assertions(2); // Garantizar que una aserción sea ejecutada.
 
     try {
-      expect(mercadopago).toBeDefined();
-      expect(mercadopago.accessToken).toBe(
+      expect(client).toBeDefined();
+      expect(client.accessToken).toBe(
         process.env.MERCADO_PAGO_ACCESS_TOKEN
       );
       console.log(
