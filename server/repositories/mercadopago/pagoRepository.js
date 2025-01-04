@@ -1,4 +1,4 @@
-const { Pago } = require("../../models");
+const { Pago, Product } = require("../../models");
 
 // Guardar o actualizar un pago en la base de datos
 async function saveOrUpdatePayment(paymentData) {
@@ -31,6 +31,7 @@ async function saveOrUpdatePayment(paymentData) {
   const total_paid_amount = transaction_details?.total_paid_amount || null;
   const net_received_amount = transaction_details?.net_received_amount || null;
   const fee_amount = fee_details?.[0]?.amount || 0;
+  const quantity = additional_info?.items?.[0]?.quantity || 0;
 
   //Formato de los datos de 'payer'
   const payer_name = `${payer.first_name || ""} ${
@@ -84,6 +85,30 @@ async function saveOrUpdatePayment(paymentData) {
       console.log("✅ Pago actualizado correctamente en la DB.");
     } else {
       console.log("✅ Pago creado correctamente en la DB.");
+    }
+
+    // 📦 **Reducir el stock si el pago es aprobado**
+    if (status === "approved" && product_id && quantity > 0) {
+      const product = await Product.findByPk(product_id);
+
+      if (!product) {
+        console.error(`❌ Producto con ID ${product_id} no encontrado.`);
+        throw new Error(`Producto con ID ${product_id} no encontrado.`);
+      }
+
+      if (product.stock < quantity) {
+        console.error(
+          `❌ Stock insuficiente al intentar restar ${quantity} del producto ${product_id}.`
+        );
+        throw new Error(`Stock insuficiente para el producto ${product_id}.`);
+      }
+
+      product.stock -= quantity;
+      await product.save();
+
+      console.log(
+        `✅ Stock actualizado correctamente. Nuevo stock del producto ${product_id}: ${product.stock}`
+      );
     }
   } catch (error) {
     console.error("❌ Error al guardar el pago:", error.message);
