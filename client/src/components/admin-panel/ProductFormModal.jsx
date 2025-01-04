@@ -15,7 +15,12 @@ import {
 } from "@chakra-ui/react";
 import api from "../../config/axiosConfig";
 
-export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }) => {
+export const ProductFormModal = ({
+  isOpen,
+  onClose,
+  onProductSave,
+  initialData,
+}) => {
   const toast = useToast();
   const [formData, setFormData] = useState({
     id: "",
@@ -47,10 +52,15 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
       }
     }
   }, [isOpen, initialData]);
-  
 
   const handleSubmit = async () => {
-    if (!formData.brand || !formData.model || !formData.price || !formData.imgUrl || !formData.name) {
+    if (
+      !formData.brand ||
+      !formData.model ||
+      !formData.price ||
+      !formData.imgUrl ||
+      !formData.name
+    ) {
       toast({
         title: "Error",
         description: "Todos los campos son obligatorios.",
@@ -62,7 +72,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
 
     const productData = {
       ...formData,
-      stock: formData.stock || 0,
+      price: parseFloat(formData.price) || 0,
+      stock: parseInt(formData.stock) || 0,
+      id: parseInt(formData.id),
     };
 
     try {
@@ -94,7 +106,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>{formData.id ? "Modificar Producto" : "Agregar Producto"}</ModalHeader>
+        <ModalHeader>
+          {formData.id ? "Modificar Producto" : "Agregar Producto"}
+        </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <FormControl id="name" mb={4}>
@@ -102,7 +116,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="text"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               placeholder="Nombre del producto"
             />
           </FormControl>
@@ -111,7 +127,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="number"
               value={formData.stock}
-              onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, stock: e.target.value })
+              }
               placeholder="Stock del producto"
             />
           </FormControl>
@@ -120,7 +138,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="text"
               value={formData.brand}
-              onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, brand: e.target.value })
+              }
               placeholder="Marca del producto"
             />
           </FormControl>
@@ -129,7 +149,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="text"
               value={formData.model}
-              onChange={(e) => setFormData({ ...formData, model: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, model: e.target.value })
+              }
               placeholder="Modelo del producto"
             />
           </FormControl>
@@ -138,7 +160,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="text"
               value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
               placeholder="Descripción del producto"
             />
           </FormControl>
@@ -147,7 +171,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="number"
               value={formData.price}
-              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, price: e.target.value })
+              }
               placeholder="Precio del producto"
             />
           </FormControl>
@@ -156,7 +182,9 @@ export const ProductFormModal = ({ isOpen, onClose, onProductSave, initialData }
             <Input
               type="text"
               value={formData.imgUrl}
-              onChange={(e) => setFormData({ ...formData, imgUrl: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, imgUrl: e.target.value })
+              }
               placeholder="URL de la imagen del producto"
             />
           </FormControl>
